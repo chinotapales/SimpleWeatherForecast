@@ -47,6 +47,8 @@
 		82740A96213192B300E00D03 /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82740A95213192B300E00D03 /* WeekViewModel.swift */; };
 		82740A9B2131A86500E00D03 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82740A9A2131A86500E00D03 /* ForecastViewModel.swift */; };
 		82740A9F2131D45600E00D03 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82740A9E2131D45600E00D03 /* GradientView.swift */; };
+		82740AA32131DA2400E00D03 /* ForecastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82740AA22131DA2400E00D03 /* ForecastCollectionViewCell.xib */; };
+		82740AA52131DDB100E00D03 /* ForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82740AA42131DDB100E00D03 /* ForecastCollectionViewCell.swift */; };
 		8F66E70188F0251D960A26A7 /* Pods_SimpleWeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539A667D96D60E252DB8D897 /* Pods_SimpleWeatherForecast.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		82740A95213192B300E00D03 /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
 		82740A9A2131A86500E00D03 /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		82740A9E2131D45600E00D03 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		82740AA22131DA2400E00D03 /* ForecastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastCollectionViewCell.xib; sourceTree = "<group>"; };
+		82740AA42131DDB100E00D03 /* ForecastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCollectionViewCell.swift; sourceTree = "<group>"; };
 		8749DD09BDC5282FB7000B6D /* Pods-SimpleWeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleWeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleWeatherForecast/Pods-SimpleWeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -411,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				82740A9D2131D44000E00D03 /* views */,
+				82740AA02131D7FF00E00D03 /* cells */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -421,6 +426,23 @@
 				82740A9E2131D45600E00D03 /* GradientView.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		82740AA02131D7FF00E00D03 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				82740AA12131DA0A00E00D03 /* forecast */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		82740AA12131DA0A00E00D03 /* forecast */ = {
+			isa = PBXGroup;
+			children = (
+				82740AA22131DA2400E00D03 /* ForecastCollectionViewCell.xib */,
+				82740AA42131DDB100E00D03 /* ForecastCollectionViewCell.swift */,
+			);
+			path = forecast;
 			sourceTree = "<group>";
 		};
 		D851890B3A51EBE65ADE704D /* Pods */ = {
@@ -547,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8214B7442131057B00470803 /* LaunchScreen.storyboard in Resources */,
+				82740AA32131DA2400E00D03 /* ForecastCollectionViewCell.xib in Resources */,
 				8214B7412131057B00470803 /* Assets.xcassets in Resources */,
 				8214B73F2131057900470803 /* Main.storyboard in Resources */,
 			);
@@ -640,6 +663,7 @@
 				82740A8D2131690900E00D03 /* Coordinate.swift in Sources */,
 				8214B78021310E3B00470803 /* String+.swift in Sources */,
 				8214B777213108FF00470803 /* UIColor+.swift in Sources */,
+				82740AA52131DDB100E00D03 /* ForecastCollectionViewCell.swift in Sources */,
 				82651B0721311CC400873082 /* Config.swift in Sources */,
 				8214B77C21310DDF00470803 /* UIView+Designable.swift in Sources */,
 				82651B0B21311F2E00873082 /* QueryParam.swift in Sources */,

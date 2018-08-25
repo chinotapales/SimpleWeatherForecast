@@ -14,6 +14,10 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     static var storyboardName: String = "Main"
     static var storyboardId: String = "MainViewController"
     
+    struct cellIds {
+        static let forecast = "forecast_cell"
+    }
+    
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var currentDateLabel: UILabel!
     
@@ -25,7 +29,10 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     @IBOutlet weak var sunriseLabel: UILabel!
     @IBOutlet weak var sunsetLabel: UILabel!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var current: CurrentViewModel?
+    var currentForecast = [ForecastViewModel]()
     var sortedDays = [[ForecastViewModel]]()
     
     var locationManager = CLLocationManager()
@@ -44,6 +51,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         super.viewWillAppear(animated)
         
         initLocation()
+        initCollectionView()
     }
     
     func initLocationManager() {
@@ -102,6 +110,22 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         sunsetLabel.text = current?.sunsetTime
         
     }
+    
+    func initCollectionView() {
+        collectionView.register(ForecastCollectionViewCell.getNib(), forCellWithReuseIdentifier: cellIds.forecast)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func popFirstDay() {
+        currentForecast = (sortedDays.first)!
+        
+        print(currentForecast)
+        
+        sortedDays.removeFirst()
+        
+        collectionView.reloadData()
+    }
 
 }
 
@@ -110,6 +134,40 @@ extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         initLocation()
     }
+}
+
+extension MainViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return currentForecast.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIds.forecast, for: indexPath) as! ForecastCollectionViewCell
+        
+        let forecast = currentForecast[indexPath.row]
+        cell.set(forecast)
+        cell.layoutIfNeeded()
+        
+        return cell
+    }
+    
+}
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
 }
 
 extension MainViewController: MainView {
@@ -146,6 +204,8 @@ extension MainViewController: MainView {
         keys.forEach { (key) in
             sortedDays.append((groupedWeekViewModel[key])!)
         }
+        
+        popFirstDay()
         
     }
     
