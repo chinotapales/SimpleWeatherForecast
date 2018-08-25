@@ -18,6 +18,8 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         static let forecast = "forecast_cell"
     }
     
+    @IBOutlet weak var contentStackView: UIStackView!
+    
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var currentDateLabel: UILabel!
     
@@ -30,6 +32,8 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     @IBOutlet weak var sunsetLabel: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var contentWidth: NSLayoutConstraint!
     
     var current: CurrentViewModel?
     var currentForecast = [ForecastViewModel]()
@@ -45,6 +49,8 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         presenter?.attach(toView: self)
         
         initLocationManager()
+        
+        setLayoutWidth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +58,12 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         
         initLocation()
         initCollectionView()
+    }
+    
+    
+    func setLayoutWidth() {
+        contentWidth.constant = UIScreen.main.bounds.width
+        contentStackView.layoutIfNeeded()
     }
     
     func initLocationManager() {
@@ -165,7 +177,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
     }
     
 }
