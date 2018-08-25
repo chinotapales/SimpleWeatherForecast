@@ -22,6 +22,9 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     @IBOutlet weak var minMaxTempLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    @IBOutlet weak var sunriseLabel: UILabel!
+    @IBOutlet weak var sunsetLabel: UILabel!
+    
     var current: CurrentViewModel?
     var sortedDays = [[ForecastViewModel]]()
     
@@ -93,6 +96,10 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         averageTempLabel.text = current?.aveTemp
         minMaxTempLabel.text = "\((current?.minTemp)!) / \((current?.maxTemp)!)"
         descriptionLabel.text = current?.description
+        
+        //Daylight Items
+        sunriseLabel.text = current?.sunriseTime
+        sunsetLabel.text = current?.sunsetTime
         
     }
 
