@@ -177,7 +177,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
     }
     
 }
