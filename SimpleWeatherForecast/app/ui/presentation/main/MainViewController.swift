@@ -18,6 +18,9 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     @IBOutlet weak var currentDateLabel: UILabel!
     
     @IBOutlet weak var forecastImageView: UIImageView!
+    @IBOutlet weak var averageTempLabel: UILabel!
+    @IBOutlet weak var minMaxTempLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var current: CurrentViewModel?
     var sortedDays = [[ForecastViewModel]]()
@@ -81,9 +84,15 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     
     func initCurrentUI() {
         
+        //Toolbar Items
         cityNameLabel.text = current?.cityName
         currentDateLabel.text = current?.dateTime
+        
+        //Current Day Items
         forecastImageView.image = current?.icon
+        averageTempLabel.text = current?.aveTemp
+        minMaxTempLabel.text = "\((current?.minTemp)!) / \((current?.maxTemp)!)"
+        descriptionLabel.text = current?.description
         
     }
 
