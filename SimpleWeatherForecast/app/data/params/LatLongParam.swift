@@ -10,8 +10,8 @@ import ObjectMapper
 
 public class LatLongParam: QueryParam {
     
-    var lat: Double?
-    var lon: Double?
+    private var lat: Double?
+    private var lon: Double?
     
     public init(_ lat: Double,_ lon: Double) {
         super.init()

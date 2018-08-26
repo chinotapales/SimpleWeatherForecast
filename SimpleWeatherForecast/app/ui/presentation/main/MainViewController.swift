@@ -53,16 +53,16 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         }
     }
     
-    var current: CurrentViewModel?
-    var currentForecast = [ForecastViewModel]()
-    var sortedDays = [[ForecastViewModel]]()
+    private var current: CurrentViewModel?
+    private var currentForecast = [ForecastViewModel]()
+    private var sortedDays = [[ForecastViewModel]]()
     
     //For expanding tableViewCells
-    var open: [Bool] = []
-    var toggle: Bool = false
+    private var open: [Bool] = []
+    private var toggle: Bool = false
     
-    var locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
+    private var locationManager = CLLocationManager()
+    private var currentLocation: CLLocation?
     
     var presenter: MainPresenter?
 
@@ -102,11 +102,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         let status = CLLocationManager.authorizationStatus()
         
         switch status {
-        case .authorizedAlways:
-            currentLocation = locationManager.location
-            retreiveData()
-            break
-        case .authorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             currentLocation = locationManager.location
             retreiveData()
             break

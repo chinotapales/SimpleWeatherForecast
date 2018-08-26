@@ -21,7 +21,7 @@ extension UIViewController {
         MBProgressHUD.hide(for: self.view, animated: false)
     }
     
-    func showAlertDialog(_ title: String, _ message: String, _ buttonTitle: String, completion: @escaping ()->()) {
+    func showAlertDialog(_ title: String, _ message: String, _ buttonTitle: String?, completion: @escaping ()->()) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: buttonTitle ?? "OK", style: .cancel) { (_) in
             completion()
