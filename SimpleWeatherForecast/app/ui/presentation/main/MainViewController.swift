@@ -44,6 +44,9 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     var currentForecast = [ForecastViewModel]()
     var sortedDays = [[ForecastViewModel]]()
     
+    //For expanding tableViewCells
+    var open: [Bool] = []
+    
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     
@@ -150,12 +153,28 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         tableView.separatorStyle = .none
         
         tableView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
+        
+        initExpanding()
+    }
+    
+    
+    //To Make sure all Rows are Hidden
+    func initExpanding() {
+        //sortedDays.forEach({
+        //_ in self.open.append(false)
+        //})
+        self.open.append(false)
+        self.open.append(false)
+        
+        tableView.reloadData()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         tableViewHeight.constant = tableView.contentSize.height
-        self.tableView.layoutIfNeeded()
+        
+        //To investigate
+        //self.tableView.layoutIfNeeded()
     }
     
     func popFirstDay() {
@@ -164,7 +183,21 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         sortedDays.removeFirst()
         
         collectionView.reloadData()
-        tableView.reloadData()
+    }
+    
+    //To Update if the Cell is Expanded or Not.
+    @objc func headerGestureHandler(_ recognizer: UITapGestureRecognizer) {
+        let header = recognizer.view!
+        let tag = header.tag
+        open[tag] = !open[tag]
+        tableView.reloadSections([tag], with: .fade)
+    }
+    
+    private func addTapGesture(for header: UIView, tag: Int) {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(headerGestureHandler(_:)))
+        header.tag = tag
+        header.isUserInteractionEnabled = true
+        header.addGestureRecognizer(gesture)
     }
 
 }
@@ -217,6 +250,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard open[section] else {
+            return 0
+        }
         return 1
     }
     
@@ -229,17 +265,18 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 128
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: cellIds.dayHeader) as! DayHeaderTableViewCell
+        addTapGesture(for: header, tag: section)
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 56
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 128
     }
     
 }
