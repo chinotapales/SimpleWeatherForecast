@@ -33,6 +33,19 @@ class SimpleWeatherForecastTests: XCTestCase {
         }
     }
     
+    func testColors() {
+        //Testing AppColor and it's convertions
+        let backgroundColor = UIColor.init(red: 49, green: 54, blue: 67)
+        let sunriseColor = UIColor.init(red: 240, green: 168, blue: 103)
+        let sunsetColor = UIColor.init(red: 179, green: 129, blue: 183)
+        
+        //XCTAssertEqualTests
+        
+        XCTAssertEqual(backgroundColor, AppColor.backgroundColor.uiColor)
+        XCTAssertEqual(sunriseColor, AppColor.sunriseColor.uiColor)
+        XCTAssertEqual(sunsetColor, AppColor.sunsetColor.uiColor)
+    }
+    
     func testCurrentViewModel() {
         //Convert the sample weather.json response to a Current Object
         //NOTE: There must be a better implementation to mapping the json file. Currently, pod dependencies don't work. Will do more testing.
@@ -87,9 +100,9 @@ class SimpleWeatherForecastTests: XCTestCase {
                     print("-End Current Object-")
                     
                     //Failed Tests
-//
+
 //                    XCTAssertNil(currentViewModel)
-//
+
 //                    XCTAssertEqual(currentViewModel.cityName, "San Fernando")
 //                    XCTAssertEqual(currentViewModel.dateTime, "Saturday August 25")
 //                    XCTAssertEqual(currentViewModel.aveTemp, "28º")
