@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DayHeaderTableViewCell: UITableViewCell {
+class DayHeaderTableViewCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var containerView: UIView!
     

@@ -139,7 +139,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     }
     
     func initTableView() {
-        tableView.register(DayHeaderTableViewCell.getNib(), forCellReuseIdentifier: cellIds.dayHeader)
+        tableView.register(DayHeaderTableViewCell.getNib(), forHeaderFooterViewReuseIdentifier: cellIds.dayHeader)
         tableView.rowHeight = 56.0
         tableView.allowsSelection = true
         tableView.separatorStyle = .none
@@ -209,19 +209,28 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Testing Purposes
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIds.dayHeader, for: indexPath) as! DayHeaderTableViewCell
+        let cell = UITableViewCell()
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: cellIds.dayHeader) as! DayHeaderTableViewCell
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 56
     }
     
 }
