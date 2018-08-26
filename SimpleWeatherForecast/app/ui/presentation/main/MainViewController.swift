@@ -15,7 +15,12 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     static var storyboardId: String = "MainViewController"
     
     struct cellIds {
+<<<<<<< HEAD
         static let dayHeader = "header_cell"
+=======
+        static let dayHeader = "day_header_cell"
+        static let dayForecast = "day_forecast_cell"
+>>>>>>> 5e4a81881b73ace9be5cf56ddd4dd9565567e6cd
         static let forecast = "forecast_cell"
     }
     
@@ -133,7 +138,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     }
     
     func initCollectionView() {
-        collectionView.register(ForecastCollectionViewCell.getNib(), forCellWithReuseIdentifier: cellIds.forecast)
+        collectionView.register(ForecastCollectionViewCell.self, forCellWithReuseIdentifier: cellIds.forecast)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -210,10 +215,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+<<<<<<< HEAD
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+=======
+        //Testing Purposes
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //Testing Purposes
+>>>>>>> 5e4a81881b73ace9be5cf56ddd4dd9565567e6cd
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIds.dayHeader, for: indexPath) as! DayHeaderTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         

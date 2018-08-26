@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="SimpleWeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="624"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIb-nW-Tkm" userLabel="Toolbar">
@@ -53,16 +53,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aok-lH-8I2" userLabel="Container View">
-                                <rect key="frame" x="0.0" y="70" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="554"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhQ-wo-zk3">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="554"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOz-Bu-eUl" userLabel="Content View">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="481.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="554"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="9yD-cc-f07" userLabel="Content Stack View">
-                                                        <rect key="frame" x="0.0" y="24" width="320" height="433.5"/>
+                                                        <rect key="frame" x="0.0" y="24" width="320" height="505.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="iW7-nL-fPc" userLabel="Cover Stack View">
                                                                 <rect key="frame" x="115" y="0.0" width="90" height="147.5"/>
@@ -169,18 +169,18 @@
                                                                 </cells>
                                                             </collectionView>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T6r-qK-M8s">
-                                                                <rect key="frame" x="0.0" y="377.5" width="320" height="56"/>
+                                                                <rect key="frame" x="24" y="377.5" width="272" height="128"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="56" id="3wO-Mn-EYY"/>
+                                                                    <constraint firstAttribute="height" constant="128" id="3wO-Mn-EYY"/>
                                                                 </constraints>
                                                             </tableView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="T6r-qK-M8s" firstAttribute="leading" secondItem="9yD-cc-f07" secondAttribute="leading" id="4se-9m-Q9P"/>
+                                                            <constraint firstItem="T6r-qK-M8s" firstAttribute="leading" secondItem="9yD-cc-f07" secondAttribute="leading" constant="24" id="4se-9m-Q9P"/>
                                                             <constraint firstItem="5Qv-aC-Wjd" firstAttribute="leading" secondItem="9yD-cc-f07" secondAttribute="leading" id="TVH-Rb-bob"/>
                                                             <constraint firstAttribute="trailing" secondItem="5Qv-aC-Wjd" secondAttribute="trailing" id="kxb-Dw-6KE"/>
-                                                            <constraint firstAttribute="trailing" secondItem="T6r-qK-M8s" secondAttribute="trailing" id="rer-Ff-0Rb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="T6r-qK-M8s" secondAttribute="trailing" constant="24" id="rer-Ff-0Rb"/>
                                                             <constraint firstAttribute="width" constant="320" id="zKM-3a-xaU"/>
                                                         </constraints>
                                                     </stackView>
@@ -224,7 +224,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <size key="freeformSize" width="320" height="550"/>
+                    <size key="freeformSize" width="320" height="624"/>
                     <connections>
                         <outlet property="averageTempLabel" destination="wZN-V2-QU7" id="mmz-Jr-QZK"/>
                         <outlet property="cityNameLabel" destination="RUE-FK-j1y" id="hRD-mL-xN8"/>
@@ -237,7 +237,7 @@
                         <outlet property="minMaxTempLabel" destination="O2J-mu-HpQ" id="jGB-ZH-lvg"/>
                         <outlet property="sunriseLabel" destination="gcQ-Oj-eaW" id="kL7-pY-VIl"/>
                         <outlet property="sunsetLabel" destination="o7N-i3-wN7" id="JzH-dD-LIO"/>
-                        <outlet property="tableView" destination="T6r-qK-M8s" id="UJZ-NF-1X6"/>
+                        <outlet property="tableView" destination="T6r-qK-M8s" id="v4g-XX-Fem"/>
                         <outlet property="tableViewHeight" destination="3wO-Mn-EYY" id="0yr-CT-GW7"/>
                     </connections>
                 </viewController>
