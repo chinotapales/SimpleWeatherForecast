@@ -22,6 +22,8 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     
     @IBOutlet weak var contentStackView: UIStackView!
     
+    @IBOutlet weak var toggleButton: UIButton!
+    
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var currentDateLabel: UILabel!
     
@@ -40,12 +42,24 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     
     @IBOutlet weak var contentWidth: NSLayoutConstraint!
     
+    @IBAction func didTapToggleButton(_ sender: Any) {
+        if !(open.isEmpty) {
+            switch toggle {
+            case true:
+                expandAll(true)
+            case false:
+                expandAll(false)
+            }
+        }
+    }
+    
     var current: CurrentViewModel?
     var currentForecast = [ForecastViewModel]()
     var sortedDays = [[ForecastViewModel]]()
     
     //For expanding tableViewCells
     var open: [Bool] = []
+    var toggle: Bool = false
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -165,12 +179,30 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         tableView.reloadData()
     }
     
+    func expandAll(_ toggle: Bool) {
+        //To Expand or Collapse All Sections Depending on the Toggle State
+        if toggle {
+            for (index, _) in open.enumerated() {
+                open[index] = true
+            }
+            toggleButton.setImage(#imageLiteral(resourceName: "ic_collapse"), for: .normal)
+        }
+        else {
+            for (index, _) in open.enumerated() {
+                open[index] = false
+            }
+            toggleButton.setImage(#imageLiteral(resourceName: "ic_expand"), for: .normal)
+        }
+        
+        self.toggle = !toggle
+        
+        tableView.reloadData()
+        
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         tableViewHeight.constant = tableView.contentSize.height
-        
-        //To Investigate
-        //self.tableView.layoutIfNeeded()
     }
     
     func notifyDataChanged() {

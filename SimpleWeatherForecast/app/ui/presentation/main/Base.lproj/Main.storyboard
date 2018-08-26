@@ -40,14 +40,27 @@
                                         <color key="textColor" red="0.83529411764705885" green="0.83921568627450982" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3J-4S-XVe">
+                                        <rect key="frame" x="0.0" y="0.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="4l7-XH-bPr"/>
+                                            <constraint firstAttribute="width" constant="50" id="Kfu-Z2-Yef"/>
+                                        </constraints>
+                                        <state key="normal" image="ic_expand"/>
+                                        <connections>
+                                            <action selector="didTapToggleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="geQ-3p-yd3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="RUE-FK-j1y" firstAttribute="top" secondItem="JIb-nW-Tkm" secondAttribute="top" constant="4" id="ADk-4e-KFp"/>
+                                    <constraint firstItem="d3J-4S-XVe" firstAttribute="leading" secondItem="JIb-nW-Tkm" secondAttribute="leading" id="BMU-tR-ShW"/>
                                     <constraint firstItem="ogH-zW-eXn" firstAttribute="centerX" secondItem="JIb-nW-Tkm" secondAttribute="centerX" id="MwF-cp-x9U"/>
                                     <constraint firstItem="RUE-FK-j1y" firstAttribute="centerX" secondItem="JIb-nW-Tkm" secondAttribute="centerX" id="QLy-Vx-6q9"/>
                                     <constraint firstAttribute="height" constant="50" id="cRC-2d-uWW"/>
                                     <constraint firstAttribute="bottom" secondItem="ogH-zW-eXn" secondAttribute="bottom" constant="8" id="jzF-yJ-MPv"/>
                                     <constraint firstItem="jed-eY-CWc" firstAttribute="leading" secondItem="RUE-FK-j1y" secondAttribute="trailing" constant="4" id="nZH-Za-R7l"/>
+                                    <constraint firstItem="d3J-4S-XVe" firstAttribute="centerY" secondItem="JIb-nW-Tkm" secondAttribute="centerY" id="sPF-Oq-ewG"/>
                                     <constraint firstItem="ogH-zW-eXn" firstAttribute="top" secondItem="RUE-FK-j1y" secondAttribute="bottom" id="tZF-fC-qti"/>
                                     <constraint firstItem="jed-eY-CWc" firstAttribute="centerY" secondItem="RUE-FK-j1y" secondAttribute="centerY" id="xXe-Ea-HcO"/>
                                 </constraints>
@@ -239,6 +252,7 @@
                         <outlet property="sunsetLabel" destination="o7N-i3-wN7" id="JzH-dD-LIO"/>
                         <outlet property="tableView" destination="T6r-qK-M8s" id="v4g-XX-Fem"/>
                         <outlet property="tableViewHeight" destination="3wO-Mn-EYY" id="0yr-CT-GW7"/>
+                        <outlet property="toggleButton" destination="d3J-4S-XVe" id="n4C-cH-Bda"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -248,6 +262,7 @@
     </scenes>
     <resources>
         <image name="01d" width="64" height="64"/>
+        <image name="ic_expand" width="28" height="29"/>
         <image name="ic_location" width="24" height="24"/>
     </resources>
 </document>
