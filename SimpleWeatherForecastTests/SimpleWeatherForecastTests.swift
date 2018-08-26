@@ -40,7 +40,8 @@ class SimpleWeatherForecastTests: XCTestCase {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 if let currentJSON = jsonResult as? Dictionary<String, AnyObject>,
-                    let mainJSON = currentJSON["main"] as? Dictionary<String, AnyObject> {
+                    let mainJSON = currentJSON["main"] as? Dictionary<String, AnyObject>,
+                    let sysJSON = currentJSON["sys"] as? Dictionary<String, AnyObject> {
                     
                     //Initialize Current Object
                     let current = Current()
@@ -49,8 +50,15 @@ class SimpleWeatherForecastTests: XCTestCase {
                     
                     let main = Main()
                     main.temp = (mainJSON as [String: Any])["temp"] as? Double
+                    main.tempMin = (mainJSON as [String: Any])["temp_min"] as? Double
+                    main.tempMax = (mainJSON as [String: Any])["temp_max"] as? Double
+                    
+                    let sys = System()
+                    sys.sunrise = (sysJSON as [String: Any])["sunrise"] as? Double
+                    sys.sunset = (sysJSON as [String: Any])["sunset"] as? Double
                     
                     current.main = main
+                    current.sys = sys
                     
                     //Convert Current Object to CurrentViewModel Struct
                     let currentViewModel = CurrentViewModel(current: current)
@@ -60,12 +68,20 @@ class SimpleWeatherForecastTests: XCTestCase {
                     print(currentViewModel.cityName)
                     print(currentViewModel.dateTime)
                     print(currentViewModel.aveTemp)
+                    print(currentViewModel.minTemp)
+                    print(currentViewModel.maxTemp)
+                    print(currentViewModel.sunriseTime)
+                    print(currentViewModel.sunsetTime)
                     print("-End Current Object-")
                     
                     //XCTAssertEqualTests
                     XCTAssertEqual(currentViewModel.cityName, "San Pedro")
                     XCTAssertEqual(currentViewModel.dateTime, "Sunday August 26")
                     XCTAssertEqual(currentViewModel.aveTemp, "28ºC")
+                    XCTAssertEqual(currentViewModel.minTemp, "28ºC")
+                    XCTAssertEqual(currentViewModel.maxTemp, "28ºC")
+                    XCTAssertEqual(currentViewModel.sunriseTime, "5:43AM")
+                    XCTAssertEqual(currentViewModel.sunsetTime, "6:11PM")
                 }
             }
             catch {

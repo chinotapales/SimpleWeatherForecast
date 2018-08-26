@@ -14,8 +14,10 @@ class System: Mappable {
     public var sunrise: Double?
     public var sunset: Double?
     
+    public init() {
+    }
+    
     public required init?(map: Map) {
-        
     }
     
     public func mapping(map: Map) {
