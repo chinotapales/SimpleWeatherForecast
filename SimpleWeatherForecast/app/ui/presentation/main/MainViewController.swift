@@ -132,8 +132,6 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     func popFirstDay() {
         currentForecast = (sortedDays.first)!
         
-        print(currentForecast)
-        
         sortedDays.removeFirst()
         
         collectionView.reloadData()
