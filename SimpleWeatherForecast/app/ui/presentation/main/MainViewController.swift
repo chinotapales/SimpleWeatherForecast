@@ -111,7 +111,16 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
             retreiveData()
             break
         case .denied:
-            //TODO: SHOW POPUP TO REQUEST TURNING ON LOCATION
+            //Redirect to Settings to Allow Location
+            showAlertDialog("Location is Denied", " Please allow Simple Weather Forecast to use your location", "Settings", completion: {
+                    if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+                        } else {
+                           UIApplication.shared.openURL(appSettings)
+                        }
+                    }
+            })
             break
         default:
             break
@@ -350,6 +359,8 @@ extension MainViewController: MainView {
     //GET /weather
     func showGetWeatherError(errorMessage: String) {
         hideLoading()
+        
+        showErrorDialog(errorMessage)
     }
     
     //GET /forecast
@@ -380,6 +391,8 @@ extension MainViewController: MainView {
     //GET /forecast
     func showGetForecastError(errorMessage: String) {
         hideLoading()
+        
+        showErrorDialog(errorMessage)
     }
     
 }

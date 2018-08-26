@@ -21,4 +21,22 @@ extension UIViewController {
         MBProgressHUD.hide(for: self.view, animated: false)
     }
     
+    func showAlertDialog(_ title: String, _ message: String, _ buttonTitle: String, completion: @escaping ()->()) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: buttonTitle ?? "OK", style: .cancel) { (_) in
+            completion()
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
+    func showErrorDialog(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel) { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
 }
