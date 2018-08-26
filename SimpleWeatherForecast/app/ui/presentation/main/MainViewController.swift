@@ -197,6 +197,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         let tag = header.tag
         open[tag] = !open[tag]
         
+        //Toggle Open to Show That it's Selected
         let cell = tableView.headerView(forSection: tag) as! DayHeaderTableViewCell
         cell.open = open[tag]
         
