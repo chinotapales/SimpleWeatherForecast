@@ -19,9 +19,11 @@ class Current: Mappable {
     public var weather: [Weather]?
     public var main: Main?
     public var coord: Coordinate?
+    
+    public init() {
+    }
             
     public required init?(map: Map) {
-        
     }
     
     public func mapping(map: Map) {

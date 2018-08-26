@@ -10,8 +10,8 @@ import ObjectMapper
 
 public class QueryParam: Mappable {
     
-    var query: String?
-    var appId: String?
+    private var query: String?
+    private var appId: String?
     
     public init() {
         let keychain = KeychainReadOnly(Keychain())

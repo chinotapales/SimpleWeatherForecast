@@ -13,9 +13,14 @@ struct ForecastViewModel {
     
     var forecast: Forecast
     
-    var date: String {
+    var day: String {
         let date = Date(timeIntervalSince1970: (forecast.dt)!)
         return (date.getStringFromDate(dateFormat: .day))!
+    }
+    
+    var date: String {
+        let date = Date(timeIntervalSince1970: (forecast.dt)!)
+        return (date.getStringFromDate(dateFormat: .date))!
     }
     
     var time: String {
@@ -56,7 +61,7 @@ struct ForecastViewModel {
     
     var windSpeed: String {
         let speed = (forecast.wind?.speed)!
-        return String(format: "%.2fm/s", speed)
+        return String(format: "%.1fm/s", speed)
     }
     
     var windDirection: String {
