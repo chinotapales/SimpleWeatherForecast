@@ -180,6 +180,14 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         
         initExpanding()
         
+        //Hide Current Day Forecasts if no data is available
+        if currentForecast.isEmpty {
+            collectionView.isHidden = true
+        }
+        else {
+            collectionView.isHidden = false
+        }
+        
         collectionView.reloadData()
     }
     

@@ -13,9 +13,14 @@ struct ForecastViewModel {
     
     var forecast: Forecast
     
-    var date: String {
+    var day: String {
         let date = Date(timeIntervalSince1970: (forecast.dt)!)
         return (date.getStringFromDate(dateFormat: .day))!
+    }
+    
+    var date: String {
+        let date = Date(timeIntervalSince1970: (forecast.dt)!)
+        return (date.getStringFromDate(dateFormat: .date))!
     }
     
     var time: String {

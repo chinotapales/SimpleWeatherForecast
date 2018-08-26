@@ -80,11 +80,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="aveTempLabel" destination="Lmn-vv-zY4" id="BbB-Bp-esN"/>
                 <outlet property="containerView" destination="vFo-KN-snT" id="hgX-1Y-eRL"/>
                 <outlet property="dateLabel" destination="IA8-Ue-GTb" id="pGT-MZ-ygC"/>
                 <outlet property="dayLabel" destination="CiF-A1-eaa" id="0mv-mX-Nbc"/>
                 <outlet property="forecastImageView" destination="FbJ-c1-Bo1" id="ANA-rT-4Hj"/>
-                <outlet property="minMaxTempLabel" destination="Lmn-vv-zY4" id="69R-Hf-loB"/>
             </connections>
             <point key="canvasLocation" x="1.5" y="21"/>
         </tableViewCell>

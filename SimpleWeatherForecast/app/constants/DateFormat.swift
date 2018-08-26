@@ -11,8 +11,9 @@ import Foundation
 enum DateFormat: String {
     
     case api = "yyyy-MM-dd'T'HH:mm:ssZ"
-    case day = "MMMM dd"
-    case dayMonthDate = "E MMMM dd"
+    case day = "EEEE"
+    case dayMonthDate = "EEEE MMMM dd"
+    case date = "MMMM dd"
     case time = "h:mm a"
     case twelveHourTime = "h:mma"
     

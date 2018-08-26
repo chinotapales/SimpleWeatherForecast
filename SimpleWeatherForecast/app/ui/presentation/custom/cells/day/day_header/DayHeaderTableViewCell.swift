@@ -17,7 +17,7 @@ class DayHeaderTableViewCell: UITableViewHeaderFooterView {
     
     @IBOutlet weak var forecastImageView: UIImageView!
     
-    @IBOutlet weak var minMaxTempLabel: UILabel!
+    @IBOutlet weak var aveTempLabel: UILabel!
     
     @IBOutlet weak var dividerView: UIView!
     
@@ -35,7 +35,10 @@ class DayHeaderTableViewCell: UITableViewHeaderFooterView {
         self.forecasts = forecasts
         
         let forecast = forecasts.first
+        
+        dayLabel.text = forecast?.day
         dateLabel.text = forecast?.date
+        aveTempLabel.text = forecast?.aveTemp
         
         forecastImageView.image = forecast?.icon
         forecastImageView.contentMode = .scaleAspectFit
