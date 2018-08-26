@@ -21,7 +21,7 @@
 		8214B77E21310E1C00470803 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77D21310E1C00470803 /* Date+.swift */; };
 		8214B78021310E3B00470803 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77F21310E3B00470803 /* String+.swift */; };
 		824424BA213284DB00C8DE7F /* DayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824424B9213284DB00C8DE7F /* DayHeaderTableViewCell.xib */; };
-		824424BC213286A800C8DE7F /* DayHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824424BB213286A800C8DE7F /* DayHeaderTableViewCell.swift */; };
+		822F42522132690500868D92 /* DayHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822F42512132690500868D92 /* DayHeaderTableViewCell.swift */; };
 		82651AFF213118BC00873082 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651AFE213118BC00873082 /* UIViewController+.swift */; };
 		82651B0321311AEA00873082 /* ReachabilityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651B0221311AEA00873082 /* ReachabilityChecker.swift */; };
 		82651B0521311AFF00873082 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651B0421311AFF00873082 /* Service.swift */; };
@@ -95,7 +95,7 @@
 		8214B77D21310E1C00470803 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		8214B77F21310E3B00470803 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		824424B9213284DB00C8DE7F /* DayHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayHeaderTableViewCell.xib; sourceTree = "<group>"; };
-		824424BB213286A800C8DE7F /* DayHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		822F42512132690500868D92 /* DayHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		82651AFE213118BC00873082 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		82651B0221311AEA00873082 /* ReachabilityChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityChecker.swift; sourceTree = "<group>"; };
 		82651B0421311AFF00873082 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -722,11 +722,7 @@
 				82672402213154D00099B0FC /* MainAssembler.swift in Sources */,
 				82651AFF213118BC00873082 /* UIViewController+.swift in Sources */,
 				8214B7692131061400470803 /* MainViewController.swift in Sources */,
-<<<<<<< HEAD
-				824424BC213286A800C8DE7F /* DayHeaderTableViewCell.swift in Sources */,
-=======
 				822F42522132690500868D92 /* DayHeaderTableViewCell.swift in Sources */,
->>>>>>> 5e4a81881b73ace9be5cf56ddd4dd9565567e6cd
 				8267241A21315F0C0099B0FC /* Current.swift in Sources */,
 				82740A9B2131A86500E00D03 /* ForecastViewModel.swift in Sources */,
 				82651B0521311AFF00873082 /* Service.swift in Sources */,
