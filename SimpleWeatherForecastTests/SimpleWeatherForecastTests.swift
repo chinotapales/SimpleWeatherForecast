@@ -33,4 +33,44 @@ class SimpleWeatherForecastTests: XCTestCase {
         }
     }
     
+    func testCurrentViewModel() {
+        //Convert the sample weather.json response to a Current Object
+        if let path = Bundle.main.path(forResource: "weather", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                if let currentJSON = jsonResult as? Dictionary<String, AnyObject>,
+                    let mainJSON = currentJSON["main"] as? Dictionary<String, AnyObject> {
+                    
+                    //Initialize Current Object
+                    let current = Current()
+                    current.name = (currentJSON as [String: Any])["name"] as? String
+                    current.dt = (currentJSON as [String: Any])["dt"] as? Double
+                    
+                    let main = Main()
+                    main.temp = (mainJSON as [String: Any])["temp"] as? Double
+                    
+                    current.main = main
+                    
+                    //Convert Current Object to CurrentViewModel Struct
+                    let currentViewModel = CurrentViewModel(current: current)
+                    
+                    //Displaying Sample weather.json response values
+                    print("-Begin Current Object-")
+                    print(currentViewModel.cityName)
+                    print(currentViewModel.dateTime)
+                    print(currentViewModel.aveTemp)
+                    print("-End Current Object-")
+                    
+                    //XCTAssertEqualTests
+                    XCTAssertEqual(currentViewModel.cityName, "San Pedro")
+                    XCTAssertEqual(currentViewModel.dateTime, "Sunday August 26")
+                    XCTAssertEqual(currentViewModel.aveTemp, "28ºC")
+                }
+            }
+            catch {
+            }
+        }
+    }
+    
 }

@@ -14,8 +14,10 @@ class Main: Mappable {
     public var tempMin: Double?
     public var tempMax: Double?
     
+    public init() {
+    }
+    
     public required init?(map: Map) {
-        
     }
     
     public func mapping(map: Map) {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		820A5DA12132B17500B0D2A8 /* DayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B8C1582132655D006E19F2 /* DayHeaderTableViewCell.xib */; };
+		820A5DA42132EDD800B0D2A8 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA32132EDD800B0D2A8 /* weather.json */; };
 		8214B73A2131057900470803 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B7392131057900470803 /* AppDelegate.swift */; };
 		8214B73F2131057900470803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8214B73D2131057900470803 /* Main.storyboard */; };
 		8214B7412131057B00470803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8214B7402131057B00470803 /* Assets.xcassets */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		539A667D96D60E252DB8D897 /* Pods_SimpleWeatherForecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleWeatherForecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C41140135F68C9D9648B266 /* Pods-SimpleWeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleWeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleWeatherForecast/Pods-SimpleWeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
+		820A5DA32132EDD800B0D2A8 /* weather.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
 		8214B7362131057900470803 /* SimpleWeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleWeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8214B7392131057900470803 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8214B73E2131057900470803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,9 +159,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		820A5DA22132EDB000B0D2A8 /* Sample JSON */ = {
+			isa = PBXGroup;
+			children = (
+				820A5DA32132EDD800B0D2A8 /* weather.json */,
+			);
+			path = "Sample JSON";
+			sourceTree = "<group>";
+		};
 		8214B72D2131057900470803 = {
 			isa = PBXGroup;
 			children = (
+				820A5DA22132EDB000B0D2A8 /* Sample JSON */,
 				8214B7382131057900470803 /* SimpleWeatherForecast */,
 				8214B74D2131057B00470803 /* SimpleWeatherForecastTests */,
 				8214B7582131057B00470803 /* SimpleWeatherForecastUITests */,
@@ -608,6 +619,7 @@
 				8214B7442131057B00470803 /* LaunchScreen.storyboard in Resources */,
 				82740AA32131DA2400E00D03 /* ForecastCollectionViewCell.xib in Resources */,
 				8214B7412131057B00470803 /* Assets.xcassets in Resources */,
+				820A5DA42132EDD800B0D2A8 /* weather.json in Resources */,
 				8214B73F2131057900470803 /* Main.storyboard in Resources */,
 				82B91CD82132934400C0228B /* DayForecastTableViewCell.xib in Resources */,
 			);
@@ -939,6 +951,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 85CQ7W5V65;
 				INFOPLIST_FILE = SimpleWeatherForecastTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -959,6 +972,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 85CQ7W5V65;
 				INFOPLIST_FILE = SimpleWeatherForecastTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
