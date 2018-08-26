@@ -15,6 +15,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     static var storyboardId: String = "MainViewController"
     
     struct cellIds {
+        static let dayHeader = "day_header_cell"
         static let forecast = "forecast_cell"
     }
     
@@ -32,6 +33,9 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     @IBOutlet weak var sunsetLabel: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var contentWidth: NSLayoutConstraint!
     
@@ -56,8 +60,13 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        initializeViewController()
+    }
+    
+    func initializeViewController() {
         initLocation()
         initCollectionView()
+        initTableView()
     }
     
     
@@ -129,6 +138,24 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         collectionView.dataSource = self
     }
     
+    func initTableView() {
+        //tableView.register(DayHeaderTableViewCell.getNib(), forCellReuseIdentifier: cellIds.dayHeader)
+        tableView.rowHeight = 56.0
+        tableView.allowsSelection = true
+        tableView.separatorStyle = .none
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        tableViewHeight.constant = tableView.contentSize.height
+        self.tableView.layoutIfNeeded()
+    }
+    
     func popFirstDay() {
         currentForecast = (sortedDays.first)!
         
@@ -180,12 +207,33 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
     
 }
 
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+}
+
+
+//Handling of API Response Protocol
 extension MainViewController: MainView {
     
+    //GET /weather
     func showGetWeatherProgress() {
         showLoading()
     }
     
+    //GET /weather
     func showGetWeatherSuccess(current: CurrentViewModel) {
         hideLoading()
         
@@ -194,14 +242,17 @@ extension MainViewController: MainView {
         initCurrentUI()
     }
     
+    //GET /weather
     func showGetWeatherError(errorMessage: String) {
         hideLoading()
     }
     
+    //GET /forecast
     func showGetForecastProgress() {
         showLoading()
     }
     
+    //GET /forecast
     func showGetForecastSuccess(week: WeekViewModel) {
         hideLoading()
         
@@ -215,10 +266,12 @@ extension MainViewController: MainView {
             sortedDays.append((groupedWeekViewModel[key])!)
         }
         
+        // For the Collection View Data Source
         popFirstDay()
         
     }
     
+    //GET /forecast
     func showGetForecastError(errorMessage: String) {
         hideLoading()
     }

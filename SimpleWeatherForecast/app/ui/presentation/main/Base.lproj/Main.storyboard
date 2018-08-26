@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,27 +15,27 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="SimpleWeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIb-nW-Tkm" userLabel="Toolbar">
-                                <rect key="frame" x="0.0" y="44" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUE-FK-j1y">
-                                        <rect key="frame" x="168.33333333333334" y="3.9999999999999982" width="38.666666666666657" height="24.333333333333329"/>
+                                        <rect key="frame" x="140.5" y="4" width="39" height="24"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="jed-eY-CWc">
-                                        <rect key="frame" x="211" y="8" width="16" height="16"/>
+                                        <rect key="frame" x="183.5" y="8" width="16" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="D9p-XC-hCv"/>
                                             <constraint firstAttribute="width" constant="16" id="naK-4F-Nnb"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Monday January 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogH-zW-eXn">
-                                        <rect key="frame" x="140" y="28.333333333333325" width="96.666666666666686" height="14.333333333333332"/>
+                                        <rect key="frame" x="112.5" y="28" width="96.5" height="14.5"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="11"/>
                                         <color key="textColor" red="0.83529411764705885" green="0.83921568627450982" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -53,19 +53,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aok-lH-8I2" userLabel="Container View">
-                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="480"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhQ-wo-zk3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="684"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOz-Bu-eUl" userLabel="Content View">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="684"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="481.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="9yD-cc-f07" userLabel="Content Stack View">
-                                                        <rect key="frame" x="27.666666666666657" y="24" width="320" height="353"/>
+                                                        <rect key="frame" x="0.0" y="24" width="320" height="433.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="iW7-nL-fPc" userLabel="Cover Stack View">
-                                                                <rect key="frame" x="115" y="0.0" width="90" height="147"/>
+                                                                <rect key="frame" x="115" y="0.0" width="90" height="147.5"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JDs-ZH-kfC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
@@ -74,16 +74,16 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dGm-M5-xJd" userLabel="Temperature Stack View">
-                                                                        <rect key="frame" x="17.333333333333346" y="62" width="55.333333333333343" height="56"/>
+                                                                        <rect key="frame" x="17.5" y="62" width="55.5" height="56.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0ºC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZN-V2-QU7">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="55.333333333333336" height="41.666666666666664"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="55.5" height="42"/>
                                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="32"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0ºC / 0ºC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2J-mu-HpQ">
-                                                                                <rect key="frame" x="0.0" y="41.666666666666657" width="55.333333333333336" height="14.333333333333336"/>
+                                                                                <rect key="frame" x="0.0" y="42" width="55.5" height="14.5"/>
                                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="11"/>
                                                                                 <color key="textColor" red="0.83529411760000005" green="0.83921568629999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x76-w7-Iet">
-                                                                        <rect key="frame" x="12" y="130" width="66.333333333333329" height="17"/>
+                                                                        <rect key="frame" x="12" y="130.5" width="66.5" height="17"/>
                                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                                                         <color key="textColor" red="0.83529411760000005" green="0.83921568629999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -99,16 +99,16 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLI-yS-Hna" userLabel="Daylight Container" customClass="GradientView" customModule="SimpleWeatherForecast" customModuleProvider="target">
-                                                                <rect key="frame" x="96" y="171" width="128" height="30"/>
+                                                                <rect key="frame" x="96" y="171.5" width="128" height="30"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcQ-Oj-eaW">
-                                                                        <rect key="frame" x="7.9999999999999858" y="8" width="52" height="14.333333333333336"/>
+                                                                        <rect key="frame" x="8" y="8" width="52" height="14.5"/>
                                                                         <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="11"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7N-i3-wN7">
-                                                                        <rect key="frame" x="67.999999999999986" y="8" width="52" height="14.333333333333336"/>
+                                                                        <rect key="frame" x="68" y="8" width="52" height="14.5"/>
                                                                         <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="11"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Qv-aC-Wjd">
-                                                                <rect key="frame" x="0.0" y="225" width="320" height="128"/>
+                                                                <rect key="frame" x="0.0" y="225.5" width="320" height="128"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="128" id="TME-Mg-ymq"/>
@@ -167,15 +167,24 @@
                                                                         </view>
                                                                     </collectionViewCell>
                                                                 </cells>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="lFV-Ok-qpe"/>
-                                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Cgd-S6-iHE"/>
-                                                                </connections>
                                                             </collectionView>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T6r-qK-M8s">
+                                                                <rect key="frame" x="0.0" y="377.5" width="320" height="56"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="56" id="3wO-Mn-EYY"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="oHY-3K-UAH"/>
+                                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6PP-1y-yhk"/>
+                                                                </connections>
+                                                            </tableView>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="T6r-qK-M8s" firstAttribute="leading" secondItem="9yD-cc-f07" secondAttribute="leading" id="4se-9m-Q9P"/>
                                                             <constraint firstItem="5Qv-aC-Wjd" firstAttribute="leading" secondItem="9yD-cc-f07" secondAttribute="leading" id="TVH-Rb-bob"/>
                                                             <constraint firstAttribute="trailing" secondItem="5Qv-aC-Wjd" secondAttribute="trailing" id="kxb-Dw-6KE"/>
+                                                            <constraint firstAttribute="trailing" secondItem="T6r-qK-M8s" secondAttribute="trailing" id="rer-Ff-0Rb"/>
                                                             <constraint firstAttribute="width" constant="320" id="zKM-3a-xaU"/>
                                                         </constraints>
                                                     </stackView>
@@ -185,7 +194,7 @@
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9yD-cc-f07" secondAttribute="trailing" id="Eb2-DS-Qch"/>
                                                     <constraint firstItem="9yD-cc-f07" firstAttribute="top" secondItem="lOz-Bu-eUl" secondAttribute="top" constant="24" id="Wr7-mi-jl0"/>
                                                     <constraint firstItem="9yD-cc-f07" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lOz-Bu-eUl" secondAttribute="leading" id="dPa-ZC-qc3"/>
-                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9yD-cc-f07" secondAttribute="bottom" id="koi-W1-frg"/>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9yD-cc-f07" secondAttribute="bottom" constant="24" id="koi-W1-frg"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -219,6 +228,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <size key="freeformSize" width="320" height="550"/>
                     <connections>
                         <outlet property="averageTempLabel" destination="wZN-V2-QU7" id="mmz-Jr-QZK"/>
                         <outlet property="cityNameLabel" destination="RUE-FK-j1y" id="hRD-mL-xN8"/>
@@ -231,6 +241,8 @@
                         <outlet property="minMaxTempLabel" destination="O2J-mu-HpQ" id="jGB-ZH-lvg"/>
                         <outlet property="sunriseLabel" destination="gcQ-Oj-eaW" id="kL7-pY-VIl"/>
                         <outlet property="sunsetLabel" destination="o7N-i3-wN7" id="JzH-dD-LIO"/>
+                        <outlet property="tableView" destination="T6r-qK-M8s" id="UJZ-NF-1X6"/>
+                        <outlet property="tableViewHeight" destination="3wO-Mn-EYY" id="0yr-CT-GW7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
