@@ -33,6 +33,14 @@ class SimpleWeatherForecastTests: XCTestCase {
         }
     }
     
+    func testApiKey() {
+        let keychain = KeychainReadOnly(Keychain())
+        
+        //XCTAssertEqualTests
+        
+        XCTAssertEqual(keychain.apiKey, "3f06d6c878a250d4bc5950f55198060a")
+    }
+    
     func testColors() {
         //Testing AppColor and it's convertions
         let backgroundColor = UIColor.init(red: 49, green: 54, blue: 67)
