@@ -174,10 +174,6 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="56" id="3wO-Mn-EYY"/>
                                                                 </constraints>
-                                                                <connections>
-                                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="oHY-3K-UAH"/>
-                                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6PP-1y-yhk"/>
-                                                                </connections>
                                                             </tableView>
                                                         </subviews>
                                                         <constraints>

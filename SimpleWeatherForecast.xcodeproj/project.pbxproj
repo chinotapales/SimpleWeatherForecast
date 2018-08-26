@@ -20,6 +20,8 @@
 		8214B77C21310DDF00470803 /* UIView+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77B21310DDF00470803 /* UIView+Designable.swift */; };
 		8214B77E21310E1C00470803 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77D21310E1C00470803 /* Date+.swift */; };
 		8214B78021310E3B00470803 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77F21310E3B00470803 /* String+.swift */; };
+		824424BA213284DB00C8DE7F /* DayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824424B9213284DB00C8DE7F /* DayHeaderTableViewCell.xib */; };
+		824424BC213286A800C8DE7F /* DayHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824424BB213286A800C8DE7F /* DayHeaderTableViewCell.swift */; };
 		82651AFF213118BC00873082 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651AFE213118BC00873082 /* UIViewController+.swift */; };
 		82651B0321311AEA00873082 /* ReachabilityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651B0221311AEA00873082 /* ReachabilityChecker.swift */; };
 		82651B0521311AFF00873082 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651B0421311AFF00873082 /* Service.swift */; };
@@ -91,6 +93,8 @@
 		8214B77B21310DDF00470803 /* UIView+Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Designable.swift"; sourceTree = "<group>"; };
 		8214B77D21310E1C00470803 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		8214B77F21310E3B00470803 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		824424B9213284DB00C8DE7F /* DayHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		824424BB213286A800C8DE7F /* DayHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		82651AFE213118BC00873082 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		82651B0221311AEA00873082 /* ReachabilityChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityChecker.swift; sourceTree = "<group>"; };
 		82651B0421311AFF00873082 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -299,6 +303,24 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		824424B72132841100C8DE7F /* day */ = {
+			isa = PBXGroup;
+			children = (
+				824424B8213284BF00C8DE7F /* header */,
+			);
+			name = day;
+			path = table;
+			sourceTree = "<group>";
+		};
+		824424B8213284BF00C8DE7F /* header */ = {
+			isa = PBXGroup;
+			children = (
+				824424B9213284DB00C8DE7F /* DayHeaderTableViewCell.xib */,
+				824424BB213286A800C8DE7F /* DayHeaderTableViewCell.swift */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
 		82651B0021311ABA00873082 /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				82740AA12131DA0A00E00D03 /* forecast */,
+				824424B72132841100C8DE7F /* day */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -572,6 +595,7 @@
 				82740AA32131DA2400E00D03 /* ForecastCollectionViewCell.xib in Resources */,
 				8214B7412131057B00470803 /* Assets.xcassets in Resources */,
 				8214B73F2131057900470803 /* Main.storyboard in Resources */,
+				824424BA213284DB00C8DE7F /* DayHeaderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +694,7 @@
 				82672402213154D00099B0FC /* MainAssembler.swift in Sources */,
 				82651AFF213118BC00873082 /* UIViewController+.swift in Sources */,
 				8214B7692131061400470803 /* MainViewController.swift in Sources */,
+				824424BC213286A800C8DE7F /* DayHeaderTableViewCell.swift in Sources */,
 				8267241A21315F0C0099B0FC /* Current.swift in Sources */,
 				82740A9B2131A86500E00D03 /* ForecastViewModel.swift in Sources */,
 				82651B0521311AFF00873082 /* Service.swift in Sources */,

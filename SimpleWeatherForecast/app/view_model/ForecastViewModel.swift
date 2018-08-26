@@ -56,7 +56,7 @@ struct ForecastViewModel {
     
     var windSpeed: String {
         let speed = (forecast.wind?.speed)!
-        return String(format: "%.2fm/s", speed)
+        return String(format: "%.1fm/s", speed)
     }
     
     var windDirection: String {

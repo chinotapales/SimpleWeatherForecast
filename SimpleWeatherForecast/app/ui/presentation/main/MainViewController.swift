@@ -15,7 +15,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     static var storyboardId: String = "MainViewController"
     
     struct cellIds {
-        static let dayHeader = "day_header_cell"
+        static let dayHeader = "header_cell"
         static let forecast = "forecast_cell"
     }
     
@@ -139,7 +139,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     }
     
     func initTableView() {
-        //tableView.register(DayHeaderTableViewCell.getNib(), forCellReuseIdentifier: cellIds.dayHeader)
+        tableView.register(DayHeaderTableViewCell.getNib(), forCellReuseIdentifier: cellIds.dayHeader)
         tableView.rowHeight = 56.0
         tableView.allowsSelection = true
         tableView.separatorStyle = .none
@@ -210,12 +210,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIds.dayHeader, for: indexPath) as! DayHeaderTableViewCell
         cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
         return cell
     }
     
