@@ -13,5 +13,9 @@ View Current Day and Date of Current Location
 View 5 Day 3 Hour Forecast
  - Minimum and Maximum Celcius Temperature
  - Wind Speed and Wind Direction
+ 
+Credits: 
+
+Weather icons from flaticon.com
 
 
