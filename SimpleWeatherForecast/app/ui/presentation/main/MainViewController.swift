@@ -44,12 +44,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     
     @IBAction func didTapToggleButton(_ sender: Any) {
         if !(open.isEmpty) {
-            switch toggle {
-            case true:
-                expandAll(true)
-            case false:
-                expandAll(false)
-            }
+            expandAll(toggle)
         }
     }
     
@@ -186,16 +181,15 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     
     func expandAll(_ toggle: Bool) {
         //To Expand or Collapse All Sections Depending on the Toggle State
+        
+        for (index, _) in open.enumerated() {
+            open[index] = toggle
+        }
+        
         if toggle {
-            for (index, _) in open.enumerated() {
-                open[index] = true
-            }
             toggleButton.setImage(#imageLiteral(resourceName: "ic_collapse"), for: .normal)
         }
         else {
-            for (index, _) in open.enumerated() {
-                open[index] = false
-            }
             toggleButton.setImage(#imageLiteral(resourceName: "ic_expand"), for: .normal)
         }
         
@@ -218,12 +212,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         initExpanding()
         
         //Hide Current Day Forecasts if no data is available
-        if currentForecast.isEmpty {
-            collectionView.isHidden = true
-        }
-        else {
-            collectionView.isHidden = false
-        }
+        collectionView.isHidden = currentForecast.isEmpty
         
         collectionView.reloadData()
     }

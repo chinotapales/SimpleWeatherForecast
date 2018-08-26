@@ -54,17 +54,15 @@ class DayHeaderTableViewCell: UITableViewHeaderFooterView {
             containerView.endColor = AppColor.sunsetColor.uiColor
             
             dateLabel.textColor = UIColor.white
-            
-            dividerView.isHidden = true
         }
         else {
             containerView.startColor = AppColor.backgroundColor.uiColor
             containerView.endColor = AppColor.backgroundColor.uiColor
             
             dateLabel.textColor = AppColor.subtitleColor.uiColor
-            
-            dividerView.isHidden = false
         }
+        
+        dividerView.isHidden = open
         
         containerView.layoutSubviews()
     }
