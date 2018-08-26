@@ -16,6 +16,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     
     struct cellIds {
         static let dayHeader = "header_cell"
+        static let dayForecast = "day_forcast_cell"
         static let forecast = "forecast_cell"
     }
     
@@ -140,12 +141,13 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     
     func initTableView() {
         tableView.register(DayHeaderTableViewCell.getNib(), forHeaderFooterViewReuseIdentifier: cellIds.dayHeader)
-        tableView.rowHeight = 56.0
-        tableView.allowsSelection = true
-        tableView.separatorStyle = .none
-        
+        tableView.register(DayForecastTableViewCell.getNib(), forCellReuseIdentifier: cellIds.dayForecast)
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.rowHeight = 128.0
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         
         tableView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
     }
@@ -162,6 +164,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         sortedDays.removeFirst()
         
         collectionView.reloadData()
+        tableView.reloadData()
     }
 
 }
@@ -214,13 +217,15 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Testing Purposes
-        return 3
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIds.dayForecast, for: indexPath) as! DayForecastTableViewCell
+        
+        //Displaying Purposes Only TODO: Fix
+        cell.set(currentForecast)
+        
         return cell
     }
     
@@ -231,6 +236,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 56
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 128
     }
     
 }
