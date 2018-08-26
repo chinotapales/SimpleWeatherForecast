@@ -46,6 +46,21 @@ class SimpleWeatherForecastTests: XCTestCase {
         XCTAssertEqual(sunsetColor, AppColor.sunsetColor.uiColor)
     }
     
+    func testDateFormats() {
+        let dt: Double = 1535292000
+        let date = Date(timeIntervalSince1970: dt)
+        
+        //XCTAssertEqualTests
+        
+        XCTAssertEqual(date.getStringFromDate(dateFormat: .day), "Sunday")
+        XCTAssertEqual(date.getStringFromDate(dateFormat: .dayMonthDate), "Sunday August 26")
+        XCTAssertEqual(date.getStringFromDate(dateFormat: .date), "August 26")
+        
+        //date Converts to your Respective Timezone (Test Passed on GMT+8:00 Timezone)
+        XCTAssertEqual(date.getStringFromDate(dateFormat: .time), "10:00 PM")
+        XCTAssertEqual(date.getStringFromDate(dateFormat: .twelveHourTime), "10:00PM")
+    }
+    
     func testCurrentViewModel() {
         //Convert the sample weather.json response to a Current Object
         //NOTE: There must be a better implementation to mapping the json file. Currently, pod dependencies don't work. Will do more testing.
@@ -120,8 +135,11 @@ class SimpleWeatherForecastTests: XCTestCase {
                     XCTAssertEqual(currentViewModel.aveTemp, "28ºC")
                     XCTAssertEqual(currentViewModel.minTemp, "28ºC")
                     XCTAssertEqual(currentViewModel.maxTemp, "28ºC")
+                    
+                    //sunriseTime and sunsetTime Converts to your Respective Timezone (Test Passed on GMT+8:00 Timezone)
                     XCTAssertEqual(currentViewModel.sunriseTime, "5:43AM")
                     XCTAssertEqual(currentViewModel.sunsetTime, "6:11PM")
+                    
                     XCTAssertEqual(currentViewModel.description, "Overcast Clouds")
                     XCTAssertEqual(currentViewModel.icon, #imageLiteral(resourceName: "04n"))
                 }
@@ -148,7 +166,7 @@ class SimpleWeatherForecastTests: XCTestCase {
                     
                     //Initialize First Forecast Object
                     let forecast = Forecast()
-                    forecast.dt = (forecastJSON as! [String: Any])["dt"] as? Double
+                    forecast.dt = forecastJSON["dt"] as? Double
                     
                     let main = Main()
                     main.temp = (mainJSON as [String: Any])["temp"] as? Double
@@ -188,8 +206,11 @@ class SimpleWeatherForecastTests: XCTestCase {
                     //XCTAssertEqualTests
                     
                     XCTAssertEqual(count, 40)
+                    
+                    //day and time Converts to your Respective Timezone (Test Passed on GMT+8:00 Timezone)
                     XCTAssertEqual(forecastViewModel.day, "Monday")
                     XCTAssertEqual(forecastViewModel.time, "2:00 AM")
+                    
                     XCTAssertEqual(forecastViewModel.minTemp, "26ºC")
                     XCTAssertEqual(forecastViewModel.maxTemp, "27ºC")
                     XCTAssertEqual(forecastViewModel.windSpeed, "3.8m/s")
