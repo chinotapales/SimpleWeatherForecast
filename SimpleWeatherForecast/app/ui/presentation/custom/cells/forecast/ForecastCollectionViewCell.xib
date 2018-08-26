@@ -28,8 +28,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lwd-DI-y4T">
-                                <rect key="frame" x="0.0" y="27" width="80" height="32"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01d" translatesAutoresizingMaskIntoConstraints="NO" id="lwd-DI-y4T">
+                                <rect key="frame" x="8" y="27" width="64" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="SAa-6I-kLg"/>
                                 </constraints>
@@ -67,4 +67,7 @@
             <point key="canvasLocation" x="-20" y="-74"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="01d" width="64" height="64"/>
+    </resources>
 </document>

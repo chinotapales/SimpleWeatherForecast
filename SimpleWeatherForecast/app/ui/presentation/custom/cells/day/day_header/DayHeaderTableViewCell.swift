@@ -10,7 +10,7 @@ import UIKit
 
 class DayHeaderTableViewCell: UITableViewHeaderFooterView {
 
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerView: GradientView!
     
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -22,6 +22,7 @@ class DayHeaderTableViewCell: UITableViewHeaderFooterView {
     @IBOutlet weak var dividerView: UIView!
     
     var forecasts = [ForecastViewModel]()
+    var open = false
     
     static func getNib() -> UINib {
         return UINib(nibName: "DayHeaderTableViewCell", bundle: nil)
@@ -42,6 +43,30 @@ class DayHeaderTableViewCell: UITableViewHeaderFooterView {
         
         forecastImageView.image = forecast?.icon
         forecastImageView.contentMode = .scaleAspectFit
+    }
+    
+    func expandView(_ open: Bool) {
+        
+        self.open = open
+        
+        if open {
+            containerView.startColor = AppColor.sunriseColor.uiColor
+            containerView.endColor = AppColor.sunsetColor.uiColor
+            
+            dateLabel.textColor = UIColor.white
+            
+            dividerView.isHidden = true
+        }
+        else {
+            containerView.startColor = AppColor.backgroundColor.uiColor
+            containerView.endColor = AppColor.backgroundColor.uiColor
+            
+            dateLabel.textColor = AppColor.subtitleColor.uiColor
+            
+            dividerView.isHidden = false
+        }
+        
+        containerView.layoutSubviews()
     }
 
 }

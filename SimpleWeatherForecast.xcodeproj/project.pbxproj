@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820A5DA12132B17500B0D2A8 /* DayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B8C1582132655D006E19F2 /* DayHeaderTableViewCell.xib */; };
 		8214B73A2131057900470803 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B7392131057900470803 /* AppDelegate.swift */; };
 		8214B73F2131057900470803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8214B73D2131057900470803 /* Main.storyboard */; };
 		8214B7412131057B00470803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8214B7402131057B00470803 /* Assets.xcassets */; };
@@ -21,7 +22,6 @@
 		8214B77E21310E1C00470803 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77D21310E1C00470803 /* Date+.swift */; };
 		8214B78021310E3B00470803 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77F21310E3B00470803 /* String+.swift */; };
 		822F42522132690500868D92 /* DayHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822F42512132690500868D92 /* DayHeaderTableViewCell.swift */; };
-		824424BA213284DB00C8DE7F /* DayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 824424B9213284DB00C8DE7F /* DayHeaderTableViewCell.xib */; };
 		82651AFF213118BC00873082 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651AFE213118BC00873082 /* UIViewController+.swift */; };
 		82651B0321311AEA00873082 /* ReachabilityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651B0221311AEA00873082 /* ReachabilityChecker.swift */; };
 		82651B0521311AFF00873082 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651B0421311AFF00873082 /* Service.swift */; };
@@ -96,7 +96,6 @@
 		8214B77D21310E1C00470803 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		8214B77F21310E3B00470803 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		822F42512132690500868D92 /* DayHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		824424B9213284DB00C8DE7F /* DayHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		82651AFE213118BC00873082 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		82651B0221311AEA00873082 /* ReachabilityChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityChecker.swift; sourceTree = "<group>"; };
 		82651B0421311AFF00873082 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -308,23 +307,6 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		824424B72132841100C8DE7F /* day */ = {
-			isa = PBXGroup;
-			children = (
-				824424B8213284BF00C8DE7F /* header */,
-			);
-			name = day;
-			path = table;
-			sourceTree = "<group>";
-		};
-		824424B8213284BF00C8DE7F /* header */ = {
-			isa = PBXGroup;
-			children = (
-				824424B9213284DB00C8DE7F /* DayHeaderTableViewCell.xib */,
-			);
-			path = header;
-			sourceTree = "<group>";
-		};
 		82651B0021311ABA00873082 /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,7 +441,6 @@
 			children = (
 				82B8C155213261C3006E19F2 /* day */,
 				82740AA12131DA0A00E00D03 /* forecast */,
-				824424B72132841100C8DE7F /* day */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -623,11 +604,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820A5DA12132B17500B0D2A8 /* DayHeaderTableViewCell.xib in Resources */,
 				8214B7442131057B00470803 /* LaunchScreen.storyboard in Resources */,
 				82740AA32131DA2400E00D03 /* ForecastCollectionViewCell.xib in Resources */,
 				8214B7412131057B00470803 /* Assets.xcassets in Resources */,
 				8214B73F2131057900470803 /* Main.storyboard in Resources */,
-				824424BA213284DB00C8DE7F /* DayHeaderTableViewCell.xib in Resources */,
 				82B91CD82132934400C0228B /* DayForecastTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

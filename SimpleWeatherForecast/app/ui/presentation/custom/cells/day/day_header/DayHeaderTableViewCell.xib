@@ -10,14 +10,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="day_header_cell" id="ICm-n2-IcU" customClass="DayHeaderTableViewCell" customModule="SimpleWeatherForecast">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="header_cell" id="ICm-n2-IcU" customClass="DayHeaderTableViewCell" customModule="SimpleWeatherForecast">
             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ICm-n2-IcU" id="GR7-s9-8ms">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MF7-H6-6rV" userLabel="Container View">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MF7-H6-6rV" userLabel="Container View" customClass="GradientView" customModule="SimpleWeatherForecast">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVF-hx-5U8">
@@ -32,8 +32,8 @@
                                 <color key="textColor" red="0.83529411760000005" green="0.83921568629999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="04n" translatesAutoresizingMaskIntoConstraints="NO" id="z8p-CY-dDT">
-                                <rect key="frame" x="135.5" y="16" width="104" height="24"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="01d" translatesAutoresizingMaskIntoConstraints="NO" id="z8p-CY-dDT">
+                                <rect key="frame" x="155.5" y="16" width="64" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="ZvS-WN-IlQ"/>
                                     <constraint firstAttribute="height" constant="24" id="jic-Ra-N60"/>
@@ -68,6 +68,21 @@
                             <constraint firstItem="aC6-dE-um0" firstAttribute="centerY" secondItem="MF7-H6-6rV" secondAttribute="centerY" id="lgA-7V-ZC0"/>
                             <constraint firstAttribute="trailing" secondItem="qzP-6I-5x8" secondAttribute="trailing" id="lyI-5Z-scQ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                <real key="value" value="0.40000000000000002"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                <real key="value" value="0.59999999999999998"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" red="0.19215686274509802" green="0.21176470588235294" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" red="0.19215686269999999" green="0.21176470589999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.19215686269999999" green="0.21176470589999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,6 +105,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="04n" width="104" height="64"/>
+        <image name="01d" width="64" height="64"/>
     </resources>
 </document>

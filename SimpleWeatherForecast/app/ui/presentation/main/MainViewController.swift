@@ -196,6 +196,10 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         let header = recognizer.view!
         let tag = header.tag
         open[tag] = !open[tag]
+        
+        let cell = tableView.headerView(forSection: tag) as! DayHeaderTableViewCell
+        cell.open = open[tag]
+        
         tableView.reloadSections([tag], with: .fade)
     }
     
@@ -279,6 +283,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: cellIds.dayHeader) as! DayHeaderTableViewCell
         let forecast = sortedDays[section]
         header.set(forecast)
+        header.expandView(open[section])
+        
         addTapGesture(for: header, tag: section)
         
         return header
