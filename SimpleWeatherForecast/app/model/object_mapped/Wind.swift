@@ -13,8 +13,10 @@ class Wind: Mappable {
     public var speed: Double?
     public var deg: Double?
     
+    public init() {
+    }
+    
     public required init?(map: Map) {
-        
     }
     
     public func mapping(map: Map) {

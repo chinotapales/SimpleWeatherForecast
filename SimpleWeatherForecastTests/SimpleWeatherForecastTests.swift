@@ -35,6 +35,7 @@ class SimpleWeatherForecastTests: XCTestCase {
     
     func testCurrentViewModel() {
         //Convert the sample weather.json response to a Current Object
+        //NOTE: There must be a better implementation to mapping the json file. Currently, pod dependencies don't work. Will do more testing.
         if let path = Bundle.main.path(forResource: "weather", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
@@ -110,6 +111,78 @@ class SimpleWeatherForecastTests: XCTestCase {
                     XCTAssertEqual(currentViewModel.sunsetTime, "6:11PM")
                     XCTAssertEqual(currentViewModel.description, "Overcast Clouds")
                     XCTAssertEqual(currentViewModel.icon, #imageLiteral(resourceName: "04n"))
+                }
+            }
+            catch {
+            }
+        }
+    }
+    
+    func testForecastViewModel() {
+        //Convert the sample forecast.json response to a Forecast Object
+        //NOTE: There must be a better implementation to mapping the json file. Currently, pod dependencies don't work. Will do more testing.
+        if let path = Bundle.main.path(forResource: "forecast", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                if let currentJSON = jsonResult as? Dictionary<String, AnyObject>,
+                    let forecastJSON = (currentJSON["list"] as? [Any])?.first as? [String: Any],
+                    let mainJSON = forecastJSON["main"] as? Dictionary<String, AnyObject>,
+                    let windJSON = forecastJSON["wind"] as? Dictionary<String, AnyObject>,
+                    let weatherJSON = forecastJSON["weather"] as? [Any] {
+                    
+                    let count = (currentJSON as [String: Any])["cnt"] as? Int
+                    
+                    //Initialize First Forecast Object
+                    let forecast = Forecast()
+                    forecast.dt = (forecastJSON as! [String: Any])["dt"] as? Double
+                    
+                    let main = Main()
+                    main.temp = (mainJSON as [String: Any])["temp"] as? Double
+                    main.tempMin = (mainJSON as [String: Any])["temp_min"] as? Double
+                    main.tempMax = (mainJSON as [String: Any])["temp_max"] as? Double
+                    
+                    let wind = Wind()
+                    wind.speed = (windJSON as [String: Any])["speed"] as? Double
+                    wind.deg = (windJSON as [String: Any])["deg"] as? Double
+                    
+                    var weather = [Weather]()
+                    let weatherItem = Weather()
+                    weatherItem.description = (weatherJSON.first as! [String: Any])["description"] as? String
+                    weatherItem.icon = (weatherJSON.first as! [String: Any])["icon"] as? String
+                    
+                    weather.append(weatherItem)
+                    
+                    forecast.main = main
+                    forecast.wind = wind
+                    forecast.weather = weather
+                    
+                    //Convert Current Object to CurrentViewModel Struct
+                    let forecastViewModel = ForecastViewModel(forecast: forecast)
+                    
+                    //Displaying Sample weather.json response values
+                    print("-Begin Forecast Object-")
+                    print(forecastViewModel.day)
+                    print(forecastViewModel.time)
+                    print(forecastViewModel.minTemp)
+                    print(forecastViewModel.maxTemp)
+                    print(forecastViewModel.windSpeed)
+                    print(forecastViewModel.windDirection)
+                    print(forecastViewModel.description)
+                    print(forecastViewModel.icon)
+                    print("-End Current Object-")
+                    
+                    //XCTAssertEqualTests
+                    
+                    XCTAssertEqual(count, 40)
+                    XCTAssertEqual(forecastViewModel.day, "Monday")
+                    XCTAssertEqual(forecastViewModel.time, "2:00 AM")
+                    XCTAssertEqual(forecastViewModel.minTemp, "26ºC")
+                    XCTAssertEqual(forecastViewModel.maxTemp, "27ºC")
+                    XCTAssertEqual(forecastViewModel.windSpeed, "3.8m/s")
+                    XCTAssertEqual(forecastViewModel.windDirection, "WSW")
+                    XCTAssertEqual(forecastViewModel.description, "Overcast Clouds")
+                    XCTAssertEqual(forecastViewModel.icon, #imageLiteral(resourceName: "04n"))
                 }
             }
             catch {

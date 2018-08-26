@@ -16,8 +16,10 @@ class Forecast: Mappable {
     public var weather: [Weather]?
     public var wind: Wind?
     
+    public init() {
+    }
+    
     public required init?(map: Map) {
-        
     }
     
     public func mapping(map: Map) {
