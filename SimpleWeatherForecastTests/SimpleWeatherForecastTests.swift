@@ -41,7 +41,8 @@ class SimpleWeatherForecastTests: XCTestCase {
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 if let currentJSON = jsonResult as? Dictionary<String, AnyObject>,
                     let mainJSON = currentJSON["main"] as? Dictionary<String, AnyObject>,
-                    let sysJSON = currentJSON["sys"] as? Dictionary<String, AnyObject> {
+                    let sysJSON = currentJSON["sys"] as? Dictionary<String, AnyObject>,
+                    let weatherJSON = currentJSON["weather"] as? [Any] {
                     
                     //Initialize Current Object
                     let current = Current()
@@ -57,8 +58,16 @@ class SimpleWeatherForecastTests: XCTestCase {
                     sys.sunrise = (sysJSON as [String: Any])["sunrise"] as? Double
                     sys.sunset = (sysJSON as [String: Any])["sunset"] as? Double
                     
+                    var weather = [Weather]()
+                    let weatherItem = Weather()
+                    weatherItem.description = (weatherJSON.first as! [String: Any])["description"] as? String
+                    weatherItem.icon = (weatherJSON.first as! [String: Any])["icon"] as? String
+                    
+                    weather.append(weatherItem)
+                    
                     current.main = main
                     current.sys = sys
+                    current.weather = weather
                     
                     //Convert Current Object to CurrentViewModel Struct
                     let currentViewModel = CurrentViewModel(current: current)
@@ -72,9 +81,26 @@ class SimpleWeatherForecastTests: XCTestCase {
                     print(currentViewModel.maxTemp)
                     print(currentViewModel.sunriseTime)
                     print(currentViewModel.sunsetTime)
+                    print(currentViewModel.description)
+                    print(currentViewModel.icon)
                     print("-End Current Object-")
                     
+                    //Failed Tests
+//
+//                    XCTAssertNil(currentViewModel)
+//
+//                    XCTAssertEqual(currentViewModel.cityName, "San Fernando")
+//                    XCTAssertEqual(currentViewModel.dateTime, "Saturday August 25")
+//                    XCTAssertEqual(currentViewModel.aveTemp, "28º")
+//                    XCTAssertEqual(currentViewModel.minTemp, "28C")
+//                    XCTAssertEqual(currentViewModel.maxTemp, "28")
+//                    XCTAssertEqual(currentViewModel.sunriseTime, "5:43A")
+//                    XCTAssertEqual(currentViewModel.sunsetTime, "6:11P")
+//                    XCTAssertEqual(currentViewModel.description, "overcast clouds")
+//                    XCTAssertEqual(currentViewModel.icon, #imageLiteral(resourceName: "04d"))
+                    
                     //XCTAssertEqualTests
+                    
                     XCTAssertEqual(currentViewModel.cityName, "San Pedro")
                     XCTAssertEqual(currentViewModel.dateTime, "Sunday August 26")
                     XCTAssertEqual(currentViewModel.aveTemp, "28ºC")
@@ -82,6 +108,8 @@ class SimpleWeatherForecastTests: XCTestCase {
                     XCTAssertEqual(currentViewModel.maxTemp, "28ºC")
                     XCTAssertEqual(currentViewModel.sunriseTime, "5:43AM")
                     XCTAssertEqual(currentViewModel.sunsetTime, "6:11PM")
+                    XCTAssertEqual(currentViewModel.description, "Overcast Clouds")
+                    XCTAssertEqual(currentViewModel.icon, #imageLiteral(resourceName: "04n"))
                 }
             }
             catch {

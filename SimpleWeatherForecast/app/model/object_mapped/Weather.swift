@@ -15,8 +15,10 @@ class Weather: Mappable {
     public var description: String?
     public var icon: String?
     
+    public init() {
+    }
+    
     public required init?(map: Map) {
-        
     }
     
     public func mapping(map: Map) {
