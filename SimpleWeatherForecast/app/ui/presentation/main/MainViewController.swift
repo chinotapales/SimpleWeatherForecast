@@ -314,6 +314,8 @@ extension MainViewController: MainView {
     func showGetForecastSuccess(week: WeekViewModel) {
         hideLoading()
         
+        sortedDays.removeAll()
+        
         let groupedWeekViewModel = Dictionary(grouping: week.forecasts) { (forecast) -> String in
             return forecast.date
         }
