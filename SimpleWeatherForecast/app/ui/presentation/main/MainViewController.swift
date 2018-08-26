@@ -153,18 +153,14 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         tableView.separatorStyle = .none
         
         tableView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
-        
-        initExpanding()
     }
     
     
     //To Make sure all Rows are Hidden
     func initExpanding() {
-        //sortedDays.forEach({
-        //_ in self.open.append(false)
-        //})
-        self.open.append(false)
-        self.open.append(false)
+        sortedDays.forEach({
+        _ in self.open.append(false)
+        })
         
         tableView.reloadData()
     }
@@ -173,14 +169,16 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         
         tableViewHeight.constant = tableView.contentSize.height
         
-        //To investigate
+        //To Investigate
         //self.tableView.layoutIfNeeded()
     }
     
-    func popFirstDay() {
+    func notifyDataChanged() {
         currentForecast = (sortedDays.first)!
         
         sortedDays.removeFirst()
+        
+        initExpanding()
         
         collectionView.reloadData()
     }
@@ -246,7 +244,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return sortedDays.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -259,8 +257,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIds.dayForecast, for: indexPath) as! DayForecastTableViewCell
         
-        //Displaying Purposes Only TODO: Fix
-        cell.set(currentForecast)
+        let dayForecast = sortedDays[indexPath.section]
+        cell.set(dayForecast)
         
         return cell
     }
@@ -271,7 +269,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: cellIds.dayHeader) as! DayHeaderTableViewCell
+        let forecast = sortedDays[section]
+        header.set(forecast)
         addTapGesture(for: header, tag: section)
+        
         return header
     }
     
@@ -323,8 +324,7 @@ extension MainViewController: MainView {
             sortedDays.append((groupedWeekViewModel[key])!)
         }
         
-        // For the Collection View Data Source
-        popFirstDay()
+        notifyDataChanged()
         
     }
     

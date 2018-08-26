@@ -21,12 +21,24 @@ class DayHeaderTableViewCell: UITableViewHeaderFooterView {
     
     @IBOutlet weak var dividerView: UIView!
     
+    var forecasts = [ForecastViewModel]()
+    
     static func getNib() -> UINib {
         return UINib(nibName: "DayHeaderTableViewCell", bundle: nil)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func set(_ forecasts: [ForecastViewModel]) {
+        self.forecasts = forecasts
+        
+        let forecast = forecasts.first
+        dateLabel.text = forecast?.date
+        
+        forecastImageView.image = forecast?.icon
+        forecastImageView.contentMode = .scaleAspectFit
     }
 
 }
