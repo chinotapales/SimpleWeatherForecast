@@ -163,19 +163,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		820A5DA22132EDB000B0D2A8 /* Sample JSON */ = {
+		820A5DA22132EDB000B0D2A8 /* sample_json */ = {
 			isa = PBXGroup;
 			children = (
 				820A5DA32132EDD800B0D2A8 /* weather.json */,
 				820A5DA62132FE4200B0D2A8 /* forecast.json */,
 			);
-			path = "Sample JSON";
+			path = sample_json;
 			sourceTree = "<group>";
 		};
 		8214B72D2131057900470803 = {
 			isa = PBXGroup;
 			children = (
-				820A5DA22132EDB000B0D2A8 /* Sample JSON */,
 				8214B7382131057900470803 /* SimpleWeatherForecast */,
 				8214B74D2131057B00470803 /* SimpleWeatherForecastTests */,
 				8214B7582131057B00470803 /* SimpleWeatherForecastUITests */,
@@ -244,6 +243,7 @@
 		8214B76A2131063600470803 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				820A5DA22132EDB000B0D2A8 /* sample_json */,
 				8214B7402131057B00470803 /* Assets.xcassets */,
 			);
 			path = resources;

@@ -13,8 +13,10 @@ class Coordinate: Mappable {
     public var lon: Double?
     public var lat: Double?
     
+    public init() {
+    }
+    
     public required init?(map: Map) {
-        
     }
     
     public func mapping(map: Map) {

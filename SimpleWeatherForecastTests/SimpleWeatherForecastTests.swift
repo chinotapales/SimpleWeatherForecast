@@ -60,11 +60,10 @@ class SimpleWeatherForecastTests: XCTestCase {
         
         //XCTAssertEqualTests
         
+        //date Converts to your Respective Timezone (Test Passed on GMT+8:00 Timezone)
         XCTAssertEqual(date.getStringFromDate(dateFormat: .day), "Sunday")
         XCTAssertEqual(date.getStringFromDate(dateFormat: .dayMonthDate), "Sunday August 26")
         XCTAssertEqual(date.getStringFromDate(dateFormat: .date), "August 26")
-        
-        //date Converts to your Respective Timezone (Test Passed on GMT+8:00 Timezone)
         XCTAssertEqual(date.getStringFromDate(dateFormat: .time), "10:00 PM")
         XCTAssertEqual(date.getStringFromDate(dateFormat: .twelveHourTime), "10:00PM")
     }
