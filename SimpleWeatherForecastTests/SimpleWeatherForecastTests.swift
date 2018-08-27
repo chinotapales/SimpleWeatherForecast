@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import ObjectMapper
+
 @testable import SimpleWeatherForecast
 
 class SimpleWeatherForecastTests: XCTestCase {
@@ -36,8 +38,9 @@ class SimpleWeatherForecastTests: XCTestCase {
     func testApiKey() {
         let keychain = KeychainReadOnly(Keychain())
         
-        //XCTAssertEqualTests
+        //XCTAssertTests
         
+        XCTAssertNil(keychain.apiKey)
         XCTAssertEqual(keychain.apiKey, "3f06d6c878a250d4bc5950f55198060a")
     }
     
@@ -70,43 +73,17 @@ class SimpleWeatherForecastTests: XCTestCase {
     
     func testCurrentViewModel() {
         //Convert the sample weather.json response to a Current Object
-        //NOTE: There must be a better implementation to mapping the json file. Currently, pod dependencies don't work. Will do more testing.
         if let path = Bundle.main.path(forResource: "weather", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let currentJSON = jsonResult as? Dictionary<String, AnyObject>,
-                    let mainJSON = currentJSON["main"] as? Dictionary<String, AnyObject>,
-                    let sysJSON = currentJSON["sys"] as? Dictionary<String, AnyObject>,
-                    let weatherJSON = currentJSON["weather"] as? [Any] {
+                if let currentJSON = jsonResult as? String {
                     
                     //Initialize Current Object
-                    let current = Current()
-                    current.name = (currentJSON as [String: Any])["name"] as? String
-                    current.dt = (currentJSON as [String: Any])["dt"] as? Double
-                    
-                    let main = Main()
-                    main.temp = (mainJSON as [String: Any])["temp"] as? Double
-                    main.tempMin = (mainJSON as [String: Any])["temp_min"] as? Double
-                    main.tempMax = (mainJSON as [String: Any])["temp_max"] as? Double
-                    
-                    let sys = System()
-                    sys.sunrise = (sysJSON as [String: Any])["sunrise"] as? Double
-                    sys.sunset = (sysJSON as [String: Any])["sunset"] as? Double
-                    
-                    var weather = [Weather]()
-                    let weatherItem = Weather()
-                    weatherItem.description = (weatherJSON.first as! [String: Any])["description"] as? String
-                    weatherItem.icon = (weatherJSON.first as! [String: Any])["icon"] as? String
-                    
-                    weather.append(weatherItem)
-                    
-                    current.main = main
-                    current.sys = sys
-                    current.weather = weather
+                    let current = Mapper<Current>().map(JSONString: currentJSON)
                     
                     //Convert Current Object to CurrentViewModel Struct
-                    let currentViewModel = CurrentViewModel(current: current)
+                    let currentViewModel = CurrentViewModel(current: current!)
                     
                     //Displaying Sample weather.json response values
                     print("-Begin Current Object-")
@@ -123,6 +100,7 @@ class SimpleWeatherForecastTests: XCTestCase {
                     
                     //Failed Tests
 
+//                    XCTAssertNil(current)
 //                    XCTAssertNil(currentViewModel)
 
 //                    XCTAssertEqual(currentViewModel.cityName, "San Fernando")
@@ -152,48 +130,25 @@ class SimpleWeatherForecastTests: XCTestCase {
                 }
             }
             catch {
+                print("JSON File Doesn't Exist")
             }
         }
+        
     }
     
     func testForecastViewModel() {
         //Convert the sample forecast.json response to a Forecast Object
-        //NOTE: There must be a better implementation to mapping the json file. Currently, pod dependencies don't work. Will do more testing.
         if let path = Bundle.main.path(forResource: "forecast", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let currentJSON = jsonResult as? Dictionary<String, AnyObject>,
-                    let forecastJSON = (currentJSON["list"] as? [Any])?.first as? [String: Any],
-                    let mainJSON = forecastJSON["main"] as? Dictionary<String, AnyObject>,
-                    let windJSON = forecastJSON["wind"] as? Dictionary<String, AnyObject>,
-                    let weatherJSON = forecastJSON["weather"] as? [Any] {
+                if let weekJSON = jsonResult as? String {
                     
-                    let count = (currentJSON as [String: Any])["cnt"] as? Int
+                    //Initialize Week Object
+                    let week = Mapper<Week>().map(JSONString: weekJSON)
                     
-                    //Initialize First Forecast Object
-                    let forecast = Forecast()
-                    forecast.dt = forecastJSON["dt"] as? Double
-                    
-                    let main = Main()
-                    main.temp = (mainJSON as [String: Any])["temp"] as? Double
-                    main.tempMin = (mainJSON as [String: Any])["temp_min"] as? Double
-                    main.tempMax = (mainJSON as [String: Any])["temp_max"] as? Double
-                    
-                    let wind = Wind()
-                    wind.speed = (windJSON as [String: Any])["speed"] as? Double
-                    wind.deg = (windJSON as [String: Any])["deg"] as? Double
-                    
-                    var weather = [Weather]()
-                    let weatherItem = Weather()
-                    weatherItem.description = (weatherJSON.first as! [String: Any])["description"] as? String
-                    weatherItem.icon = (weatherJSON.first as! [String: Any])["icon"] as? String
-                    
-                    weather.append(weatherItem)
-                    
-                    forecast.main = main
-                    forecast.wind = wind
-                    forecast.weather = weather
+                    //Initialize ForecastObject
+                    let forecast = (week?.list?.first)!
                     
                     //Convert Current Object to CurrentViewModel Struct
                     let forecastViewModel = ForecastViewModel(forecast: forecast)
@@ -212,7 +167,7 @@ class SimpleWeatherForecastTests: XCTestCase {
                     
                     //XCTAssertEqualTests
                     
-                    XCTAssertEqual(count, 40)
+                    XCTAssertEqual(week?.cnt, 40)
                     
                     //day and time Converts to your Respective Timezone (Test Passed on GMT+8:00 Timezone)
                     XCTAssertEqual(forecastViewModel.day, "Monday")
@@ -227,6 +182,7 @@ class SimpleWeatherForecastTests: XCTestCase {
                 }
             }
             catch {
+                print("JSON File Doesn't Exist")
             }
         }
     }
