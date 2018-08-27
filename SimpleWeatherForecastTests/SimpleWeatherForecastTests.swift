@@ -38,9 +38,12 @@ class SimpleWeatherForecastTests: XCTestCase {
     func testApiKey() {
         let keychain = KeychainReadOnly(Keychain())
         
+        //Failed Tests
+        
+//        XCTAssertNil(keychain.apiKey)
+        
         //XCTAssertTests
         
-        XCTAssertNil(keychain.apiKey)
         XCTAssertEqual(keychain.apiKey, "3f06d6c878a250d4bc5950f55198060a")
     }
     

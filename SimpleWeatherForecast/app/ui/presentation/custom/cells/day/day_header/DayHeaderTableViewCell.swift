@@ -21,7 +21,7 @@ class DayHeaderTableViewCell: UITableViewHeaderFooterView {
     
     @IBOutlet weak var dividerView: UIView!
     
-    var forecasts = [ForecastViewModel]()
+    var forecast: ForecastViewModel?
     var open = false
     
     static func getNib() -> UINib {
@@ -32,16 +32,14 @@ class DayHeaderTableViewCell: UITableViewHeaderFooterView {
         super.awakeFromNib()
     }
     
-    func set(_ forecasts: [ForecastViewModel]) {
-        self.forecasts = forecasts
+    func set(_ forecast: ForecastViewModel) {
+        self.forecast = forecast
         
-        let forecast = forecasts.first
+        dayLabel.text = forecast.day
+        dateLabel.text = forecast.date
+        aveTempLabel.text = forecast.aveTemp
         
-        dayLabel.text = forecast?.day
-        dateLabel.text = forecast?.date
-        aveTempLabel.text = forecast?.aveTemp
-        
-        forecastImageView.image = forecast?.icon
+        forecastImageView.image = forecast.icon
         forecastImageView.contentMode = .scaleAspectFit
     }
     

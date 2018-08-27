@@ -308,7 +308,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: cellIds.dayHeader) as! DayHeaderTableViewCell
-        let forecast = sortedDays[section]
+        let forecast = (sortedDays[section].first)!
         header.set(forecast)
         header.expandView(open[section])
         
