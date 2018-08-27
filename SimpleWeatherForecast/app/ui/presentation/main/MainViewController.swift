@@ -181,8 +181,6 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         sortedDays.forEach({
         _ in self.open.append(false)
         })
-        
-        tableView.reloadData()
     }
     
     func expandAll(_ toggle: Bool) {
@@ -206,6 +204,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     }
     
     func initPullToRefresh() {
+        
         refreshControl = UIRefreshControl()
         refreshControl.tintColor = UIColor.white
     
@@ -225,6 +224,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
             self.refreshControl.endRefreshing()
         }
         else {
+            //Hides the activity indicator overlay
             hideLoading()
         }
     }
@@ -242,8 +242,11 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         initExpanding()
         
         //Hide Current Day Forecasts if no data is available
+        
         collectionView.isHidden = currentForecast.isEmpty
         
+        //Reload Data Retrieved From API
+        tableView.reloadData()
         collectionView.reloadData()
     }
     
@@ -359,8 +362,8 @@ extension MainViewController: MainView {
     
     //GET /weather
     func showGetWeatherProgress() {
-        if !(refreshControl.isRefreshing) {
-            showLoading()
+        if !(self.refreshControl.isRefreshing) {
+            self.showLoading()
         }
     }
     
@@ -381,8 +384,8 @@ extension MainViewController: MainView {
     
     //GET /forecast
     func showGetForecastProgress() {
-        if !(refreshControl.isRefreshing) {
-            showLoading()
+        if !(self.refreshControl.isRefreshing) {
+            self.showLoading()
         }
     }
     
