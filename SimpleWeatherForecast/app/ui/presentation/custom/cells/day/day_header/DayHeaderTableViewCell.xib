@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MF7-H6-6rV" userLabel="Container View" customClass="GradientView" customModule="SimpleWeatherForecast">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="24" y="0.0" width="327" height="56"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVF-hx-5U8">
                                 <rect key="frame" x="12" y="8" width="66" height="23"/>
@@ -34,20 +34,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="01d" translatesAutoresizingMaskIntoConstraints="NO" id="z8p-CY-dDT">
-                                <rect key="frame" x="155.5" y="16" width="64" height="24"/>
+                                <rect key="frame" x="131.5" y="16" width="64" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="ZvS-WN-IlQ"/>
                                     <constraint firstAttribute="height" constant="24" id="jic-Ra-N60"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0ºC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-dE-um0">
-                                <rect key="frame" x="337" y="18" width="26" height="20"/>
+                                <rect key="frame" x="289" y="18" width="26" height="20"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzP-6I-5x8" userLabel="Divider">
-                                <rect key="frame" x="0.0" y="55" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="55" width="327" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Ohc-Lc-bdt"/>
@@ -88,9 +88,9 @@
                 </subviews>
                 <color key="backgroundColor" red="0.19215686269999999" green="0.21176470589999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="MF7-H6-6rV" secondAttribute="trailing" id="Qas-ZX-DpM"/>
+                    <constraint firstAttribute="trailing" secondItem="MF7-H6-6rV" secondAttribute="trailing" constant="24" id="Qas-ZX-DpM"/>
                     <constraint firstAttribute="bottom" secondItem="MF7-H6-6rV" secondAttribute="bottom" id="W1O-ZI-ZhS"/>
-                    <constraint firstItem="MF7-H6-6rV" firstAttribute="leading" secondItem="GR7-s9-8ms" secondAttribute="leading" id="aYk-qg-3hA"/>
+                    <constraint firstItem="MF7-H6-6rV" firstAttribute="leading" secondItem="GR7-s9-8ms" secondAttribute="leading" constant="24" id="aYk-qg-3hA"/>
                     <constraint firstItem="MF7-H6-6rV" firstAttribute="top" secondItem="GR7-s9-8ms" secondAttribute="top" id="yF7-02-ZeA"/>
                 </constraints>
             </tableViewCellContentView>
