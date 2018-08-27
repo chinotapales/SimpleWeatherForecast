@@ -7,18 +7,15 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 extension UIViewController {
     
     func showLoading() {
-        let loadingView = MBProgressHUD.showAdded(to: self.view, animated: true)
-        loadingView.label.text = "Loading"
-        loadingView.animationType = .fade
+        self.view.showActivityIndicator()
     }
     
     func hideLoading() {
-        MBProgressHUD.hide(for: self.view, animated: false)
+        self.view.removeActivityIndicator()
     }
     
     func showAlertDialog(_ title: String, _ message: String, _ buttonTitle: String?, completion: @escaping ()->()) {

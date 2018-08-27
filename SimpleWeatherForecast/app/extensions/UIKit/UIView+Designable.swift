@@ -68,4 +68,27 @@ extension UIView {
         }
     }
     
+    func showActivityIndicator(){
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 64, height: 64)
+        activityIndicator.startAnimating()
+        
+        blurEffectView.contentView.addSubview(activityIndicator)
+        activityIndicator.center = blurEffectView.contentView.center
+        
+        self.addSubview(blurEffectView)
+    }
+    
+    func removeActivityIndicator(){
+        self.subviews.compactMap {  $0 as? UIVisualEffectView }.forEach {
+            $0.removeFromSuperview()
+        }
+    }
+    
 }
