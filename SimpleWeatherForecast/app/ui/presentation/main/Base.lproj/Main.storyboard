@@ -260,6 +260,7 @@
                         <outlet property="descriptionLabel" destination="x76-w7-Iet" id="xuX-Ag-0Ol"/>
                         <outlet property="forecastImageView" destination="JDs-ZH-kfC" id="EA7-Lp-2sX"/>
                         <outlet property="minMaxTempLabel" destination="O2J-mu-HpQ" id="jGB-ZH-lvg"/>
+                        <outlet property="scrollView" destination="ZhQ-wo-zk3" id="bgo-RQ-2TY"/>
                         <outlet property="sunriseLabel" destination="gcQ-Oj-eaW" id="kL7-pY-VIl"/>
                         <outlet property="sunsetLabel" destination="o7N-i3-wN7" id="JzH-dD-LIO"/>
                         <outlet property="tableView" destination="T6r-qK-M8s" id="v4g-XX-Fem"/>

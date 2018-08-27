@@ -20,6 +20,8 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         static let forecast = "forecast_cell"
     }
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var contentStackView: UIStackView!
     
     @IBOutlet weak var toggleButton: UIButton!
@@ -52,6 +54,9 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     private var currentForecast = [ForecastViewModel]()
     private var sortedDays = [[ForecastViewModel]]()
     
+    //For pull to refresh
+    private var refreshControl: UIRefreshControl!
+    
     //For expanding tableViewCells
     private var open: [Bool] = []
     private var toggle: Bool = false
@@ -80,6 +85,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         initLocation()
         initCollectionView()
         initTableView()
+        initPullToRefresh()
     }
     
     
@@ -99,7 +105,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             currentLocation = locationManager.location
-            retreiveData()
+            retreiveData(self)
             break
         case .denied:
             //Redirect to Settings to Allow Location
@@ -119,7 +125,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         
     }
     
-    func retreiveData() {
+    @objc func retreiveData(_ sender: Any) {
         if let currentLocation = self.currentLocation {
             let lat = currentLocation.coordinate.latitude
             let long = currentLocation.coordinate.longitude
@@ -197,6 +203,26 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         
         tableView.reloadData()
         
+    }
+    
+    func initPullToRefresh() {
+        refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.white
+    
+        if #available(iOS 10.0, *) {
+            scrollView.refreshControl = refreshControl
+        }
+        else {
+            scrollView.addSubview(refreshControl)
+        }
+    
+        refreshControl.addTarget(self, action: #selector(retreiveData(_:)), for: .valueChanged)
+    }
+    
+    func endRefreshing() {
+        if refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
+        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -329,7 +355,9 @@ extension MainViewController: MainView {
     
     //GET /weather
     func showGetWeatherProgress() {
-        showLoading()
+        if !(refreshControl.isRefreshing) {
+            showLoading()
+        }
     }
     
     //GET /weather
@@ -350,12 +378,15 @@ extension MainViewController: MainView {
     
     //GET /forecast
     func showGetForecastProgress() {
-        showLoading()
+        if !(refreshControl.isRefreshing) {
+            showLoading()
+        }
     }
     
     //GET /forecast
     func showGetForecastSuccess(week: WeekViewModel) {
         hideLoading()
+        endRefreshing()
         
         sortedDays.removeAll()
         
@@ -376,6 +407,7 @@ extension MainViewController: MainView {
     //GET /forecast
     func showGetForecastError(errorMessage: String) {
         hideLoading()
+        endRefreshing()
         
         showErrorDialog(errorMessage)
     }
