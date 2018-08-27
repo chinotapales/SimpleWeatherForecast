@@ -21,3 +21,8 @@ end
 target 'SimpleWeatherForecast' do
 	install_pods
 end
+
+target 'SimpleWeatherForecastTests' do
+    pod 'Moya-ObjectMapper/RxSwift', '~> 2.7'
+end
+    
