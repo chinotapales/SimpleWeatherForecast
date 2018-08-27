@@ -219,9 +219,13 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
         refreshControl.addTarget(self, action: #selector(retreiveData(_:)), for: .valueChanged)
     }
     
-    func endRefreshing() {
+    //Hide loading indicators
+    func endLoading() {
         if refreshControl.isRefreshing {
             self.refreshControl.endRefreshing()
+        }
+        else {
+            hideLoading()
         }
     }
     
@@ -362,17 +366,16 @@ extension MainViewController: MainView {
     
     //GET /weather
     func showGetWeatherSuccess(current: CurrentViewModel) {
-        hideLoading()
-        
         self.current = current
         
         initCurrentUI()
+        
+        endLoading()
     }
     
     //GET /weather
     func showGetWeatherError(errorMessage: String) {
-        hideLoading()
-        
+        endLoading()
         showErrorDialog(errorMessage)
     }
     
@@ -385,9 +388,6 @@ extension MainViewController: MainView {
     
     //GET /forecast
     func showGetForecastSuccess(week: WeekViewModel) {
-        hideLoading()
-        endRefreshing()
-        
         sortedDays.removeAll()
         
         let groupedWeekViewModel = Dictionary(grouping: week.forecasts) { (forecast) -> String in
@@ -402,13 +402,12 @@ extension MainViewController: MainView {
         
         notifyDataChanged()
         
+        endLoading()
     }
     
     //GET /forecast
     func showGetForecastError(errorMessage: String) {
-        hideLoading()
-        endRefreshing()
-        
+        endLoading()
         showErrorDialog(errorMessage)
     }
     

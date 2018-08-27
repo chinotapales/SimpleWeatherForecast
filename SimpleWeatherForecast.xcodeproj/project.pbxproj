@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		820A5DA12132B17500B0D2A8 /* DayHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B8C1582132655D006E19F2 /* DayHeaderTableViewCell.xib */; };
 		820A5DA42132EDD800B0D2A8 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA32132EDD800B0D2A8 /* weather.json */; };
-		820A5DA52132FD5C00B0D2A8 /* Pods_SimpleWeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539A667D96D60E252DB8D897 /* Pods_SimpleWeatherForecast.framework */; };
 		820A5DA72132FE4200B0D2A8 /* forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA62132FE4200B0D2A8 /* forecast.json */; };
 		8214B73A2131057900470803 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B7392131057900470803 /* AppDelegate.swift */; };
 		8214B73F2131057900470803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8214B73D2131057900470803 /* Main.storyboard */; };
@@ -57,6 +56,7 @@
 		82B91CD82132934400C0228B /* DayForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B91CD72132934400C0228B /* DayForecastTableViewCell.xib */; };
 		82B91CDA213293E700C0228B /* DayForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B91CD9213293E700C0228B /* DayForecastTableViewCell.swift */; };
 		8F66E70188F0251D960A26A7 /* Pods_SimpleWeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539A667D96D60E252DB8D897 /* Pods_SimpleWeatherForecast.framework */; };
+		C675D5E636278249D1F1467B /* Pods_SimpleWeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539A667D96D60E252DB8D897 /* Pods_SimpleWeatherForecast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F66E70188F0251D960A26A7 /* Pods_SimpleWeatherForecast.framework in Frameworks */,
+				C675D5E636278249D1F1467B /* Pods_SimpleWeatherForecast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +150,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				820A5DA52132FD5C00B0D2A8 /* Pods_SimpleWeatherForecast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,7 +675,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SimpleWeatherForecast/Pods-SimpleWeatherForecast-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -686,7 +685,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",

@@ -13,9 +13,6 @@ def install_pods
   #security
   pod 'KeychainSwift', '~> 11.0'
 
-  #ui
-  pod 'MBProgressHUD', '~> 1.0.0'
-
 end
 
 target 'SimpleWeatherForecast' do
