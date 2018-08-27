@@ -77,10 +77,10 @@ class SimpleWeatherForecastTests: XCTestCase {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let currentJSON = jsonResult as? String {
+                if let currentJSON = jsonResult as? Dictionary<String, AnyObject> {
                     
                     //Initialize Current Object
-                    let current = Mapper<Current>().map(JSONString: currentJSON)
+                    let current = Mapper<Current>().map(JSON: currentJSON as [String: Any])
                     
                     //Convert Current Object to CurrentViewModel Struct
                     let currentViewModel = CurrentViewModel(current: current!)
@@ -130,8 +130,11 @@ class SimpleWeatherForecastTests: XCTestCase {
                 }
             }
             catch {
-                print("JSON File Doesn't Exist")
+                print("Error parsing JSON file")
             }
+        }
+        else {
+            print("weather.json not found")
         }
         
     }
@@ -142,10 +145,10 @@ class SimpleWeatherForecastTests: XCTestCase {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let weekJSON = jsonResult as? String {
+                if let weekJSON = jsonResult as? Dictionary<String, AnyObject> {
                     
-                    //Initialize Week Object
-                    let week = Mapper<Week>().map(JSONString: weekJSON)
+                    //Initialize Current Object
+                    let week = Mapper<Week>().map(JSON: weekJSON as [String: Any])
                     
                     //Initialize ForecastObject
                     let forecast = (week?.list?.first)!
@@ -182,7 +185,7 @@ class SimpleWeatherForecastTests: XCTestCase {
                 }
             }
             catch {
-                print("JSON File Doesn't Exist")
+                print("Error Parsing JSON File")
             }
         }
     }

@@ -21,6 +21,10 @@
 		8214B77C21310DDF00470803 /* UIView+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77B21310DDF00470803 /* UIView+Designable.swift */; };
 		8214B77E21310E1C00470803 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77D21310E1C00470803 /* Date+.swift */; };
 		8214B78021310E3B00470803 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B77F21310E3B00470803 /* String+.swift */; };
+		821B0C3F2133CD21009CCF71 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA32132EDD800B0D2A8 /* weather.json */; };
+		821B0C402133CD22009CCF71 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA32132EDD800B0D2A8 /* weather.json */; };
+		821B0C412133CD27009CCF71 /* forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA62132FE4200B0D2A8 /* forecast.json */; };
+		821B0C422133CD28009CCF71 /* forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA62132FE4200B0D2A8 /* forecast.json */; };
 		822F42522132690500868D92 /* DayHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822F42512132690500868D92 /* DayHeaderTableViewCell.swift */; };
 		82651AFF213118BC00873082 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651AFE213118BC00873082 /* UIViewController+.swift */; };
 		82651B0321311AEA00873082 /* ReachabilityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82651B0221311AEA00873082 /* ReachabilityChecker.swift */; };
@@ -53,10 +57,6 @@
 		82740AA52131DDB100E00D03 /* ForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82740AA42131DDB100E00D03 /* ForecastCollectionViewCell.swift */; };
 		82B91CD82132934400C0228B /* DayForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82B91CD72132934400C0228B /* DayForecastTableViewCell.xib */; };
 		82B91CDA213293E700C0228B /* DayForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B91CD9213293E700C0228B /* DayForecastTableViewCell.swift */; };
-		82FF570A2133C83E0047C892 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA32132EDD800B0D2A8 /* weather.json */; };
-		82FF570B2133C83E0047C892 /* forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA62132FE4200B0D2A8 /* forecast.json */; };
-		82FF57112133CA170047C892 /* forecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA62132FE4200B0D2A8 /* forecast.json */; };
-		82FF57122133CA1A0047C892 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 820A5DA32132EDD800B0D2A8 /* weather.json */; };
 		8F66E70188F0251D960A26A7 /* Pods_SimpleWeatherForecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539A667D96D60E252DB8D897 /* Pods_SimpleWeatherForecast.framework */; };
 		CC96E1878B3CD961D5B52320 /* Pods_SimpleWeatherForecastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D965CC85CAAC644FB234C11 /* Pods_SimpleWeatherForecastTests.framework */; };
 /* End PBXBuildFile section */
@@ -240,8 +240,7 @@
 		8214B76A2131063600470803 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				820A5DA32132EDD800B0D2A8 /* weather.json */,
-				820A5DA62132FE4200B0D2A8 /* forecast.json */,
+				821B0C432133CF64009CCF71 /* sample_data */,
 				8214B7402131057B00470803 /* Assets.xcassets */,
 			);
 			path = resources;
@@ -319,6 +318,15 @@
 				82651AFE213118BC00873082 /* UIViewController+.swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		821B0C432133CF64009CCF71 /* sample_data */ = {
+			isa = PBXGroup;
+			children = (
+				820A5DA32132EDD800B0D2A8 /* weather.json */,
+				820A5DA62132FE4200B0D2A8 /* forecast.json */,
+			);
+			path = sample_data;
 			sourceTree = "<group>";
 		};
 		82651B0021311ABA00873082 /* data */ = {
@@ -624,11 +632,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82FF570A2133C83E0047C892 /* weather.json in Resources */,
-				82FF570B2133C83E0047C892 /* forecast.json in Resources */,
 				820A5DA12132B17500B0D2A8 /* DayHeaderTableViewCell.xib in Resources */,
 				8214B7442131057B00470803 /* LaunchScreen.storyboard in Resources */,
 				82740AA32131DA2400E00D03 /* ForecastCollectionViewCell.xib in Resources */,
+				821B0C402133CD22009CCF71 /* weather.json in Resources */,
+				821B0C422133CD28009CCF71 /* forecast.json in Resources */,
 				8214B7412131057B00470803 /* Assets.xcassets in Resources */,
 				8214B73F2131057900470803 /* Main.storyboard in Resources */,
 				82B91CD82132934400C0228B /* DayForecastTableViewCell.xib in Resources */,
@@ -639,8 +647,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82FF57122133CA1A0047C892 /* weather.json in Resources */,
-				82FF57112133CA170047C892 /* forecast.json in Resources */,
+				821B0C412133CD27009CCF71 /* forecast.json in Resources */,
+				821B0C3F2133CD21009CCF71 /* weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
