@@ -35,12 +35,22 @@
                             <outlet property="delegate" destination="-1" id="5vF-Sz-buJ"/>
                         </connections>
                     </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mm3-NO-WXK" userLabel="Divider">
+                        <rect key="frame" x="24" y="126.5" width="327" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="ij1-3r-dm8"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="mm3-NO-WXK" secondAttribute="bottom" id="EID-Co-Bt6"/>
                     <constraint firstAttribute="bottom" secondItem="0gM-WM-RFK" secondAttribute="bottom" id="I4V-2D-ffV"/>
                     <constraint firstItem="0gM-WM-RFK" firstAttribute="top" secondItem="ie8-zc-1xf" secondAttribute="top" id="NAJ-wb-zxc"/>
                     <constraint firstAttribute="trailing" secondItem="0gM-WM-RFK" secondAttribute="trailing" id="Ugf-4c-rNQ"/>
+                    <constraint firstItem="mm3-NO-WXK" firstAttribute="leading" secondItem="ie8-zc-1xf" secondAttribute="leading" constant="24" id="v0Y-ks-KnB"/>
                     <constraint firstItem="0gM-WM-RFK" firstAttribute="leading" secondItem="ie8-zc-1xf" secondAttribute="leading" id="xR8-26-uxR"/>
+                    <constraint firstAttribute="trailing" secondItem="mm3-NO-WXK" secondAttribute="trailing" constant="24" id="z28-V0-rQJ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
