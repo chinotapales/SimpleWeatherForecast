@@ -46,7 +46,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
     
     @IBAction func didTapToggleButton(_ sender: Any) {
         if !(open.isEmpty) {
-            expandAll(toggle)
+            expandAll(!toggle)
         }
     }
     
@@ -197,7 +197,7 @@ class MainViewController: UIViewController, BaseViewController, Storyboarded {
             toggleButton.setImage(#imageLiteral(resourceName: "ic_expand"), for: .normal)
         }
         
-        self.toggle = !toggle
+        self.toggle = toggle
         
         tableView.reloadData()
         
